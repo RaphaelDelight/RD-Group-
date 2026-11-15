@@ -1,0 +1,6 @@
+{
+  "name": "Luna Luxury Wears",
+  "description": "Luna Luxury Wears — 3D streetwear clothing rail, Try the Look runway, and luxury fashion storefront.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

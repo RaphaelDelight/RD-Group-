@@ -1,0 +1,4768 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Luna Luxury Wears</title>
+  <meta name="description" content="Luna Luxury Wears — Limited-run 3D streetwear rail, styled runway looks, footwear, and atelier apparel. No restocks.">
+  <meta property="og:title" content="Luna Luxury Wears">
+  <meta property="og:description" content="Limited-run streetwear, designer-inspired silhouettes, and head-to-toe styled runway looks.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="https://reel-ref-try-the-look.vercel.app/assets/model-1-640.webp">
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --surface: #141417;
+      --surface-2: #1b1b1f;
+      --ink: #f1efec;
+      --mute: #8d8a86;
+      --line: rgba(241, 239, 236, .14);
+      --red: #b3121b;
+      --rw-ease: cubic-bezier(.16, 1, .3, 1);
+      --rw-silk: cubic-bezier(.65, 0, .35, 1);
+      --rw-spring: cubic-bezier(.34, 1.56, .64, 1);
+      --rw-sheet: cubic-bezier(.32, .72, 0, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 2px;
+    }
+
+    .tabular {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ================= SITE NAVBAR ================= */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      height: 64px;
+      background: rgba(11, 11, 12, .82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-nav-inner {
+      max-width: 1440px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-brand {
+      font-family: 'UnifrakturMaguntia', serif;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: .01em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+
+    .nav-links a {
+      white-space: nowrap;
+      transition: color .2s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--ink);
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-icon-btn {
+      height: 36px;
+      min-width: 36px;
+      padding: 0 10px;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 1px solid transparent;
+      transition: border-color .2s, background .2s, color .2s;
+      white-space: nowrap;
+    }
+
+    .nav-icon-btn:hover {
+      border-color: rgba(241, 239, 236, .35);
+      background: rgba(241, 239, 236, .06);
+    }
+
+    .nav-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--bg);
+      font-size: 10px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .nav-count.zero {
+      background: rgba(241, 239, 236, .16);
+      color: var(--ink);
+    }
+
+    .nav-hamburger {
+      display: none;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+    }
+
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      z-index: 39;
+      background: rgba(11, 11, 12, .96);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+      padding: 20px 24px 28px;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+    }
+
+    .search-bar-drop {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      z-index: 38;
+      background: rgba(11, 11, 12, .96);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 28px;
+    }
+
+    .search-bar-drop.open {
+      display: block;
+    }
+
+    .search-bar-form {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-bar-form input {
+      flex: 1;
+      height: 42px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      padding: 0 18px;
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .site-nav-inner {
+        padding: 0 16px;
+        gap: 12px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-hamburger {
+        display: inline-flex;
+      }
+      .nav-brand {
+        font-size: 26px;
+      }
+      .nav-icon-label {
+        display: none;
+      }
+    }
+
+    /* ================= PART A — HERO ("Luna" rail) ================= */
+    #hero-stage {
+      position: relative;
+      width: 100%;
+      height: calc(100svh - 64px);
+      min-height: 440px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    #art {
+      position: absolute;
+      width: 1500px;
+      height: 1000px;
+      transform-origin: 0 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 40%, #18181a 0%, #0b0b0c 100%);
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    #art .ui {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    #art .pill {
+      height: 34px;
+      padding: 0 20px;
+      border: 1px solid rgba(241, 239, 236, .6);
+      border-radius: 40px;
+      display: inline-grid;
+      place-items: center;
+      transition: background .25s, color .25s, border-color .25s;
+      white-space: nowrap;
+    }
+
+    #art .pill:hover {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    #art .dim {
+      transition: opacity .7s cubic-bezier(.2, .8, .2, 1), filter .7s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    #art .dimmer {
+      transition: opacity .45s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    #art.open .dim {
+      opacity: .12;
+      filter: blur(2px);
+    }
+
+    #art.open .dimmer {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #art.open #band.dimmer {
+      transition: none;
+    }
+
+    #about {
+      position: absolute;
+      left: 46px;
+      top: 46px;
+    }
+
+    #logo {
+      position: absolute;
+      left: 50%;
+      top: 26px;
+      transform: translateX(-50%);
+      font-family: 'UnifrakturMaguntia', serif;
+      font-weight: 400;
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: .01em;
+      color: var(--ink);
+      white-space: nowrap;
+      text-transform: none;
+    }
+
+    #contact {
+      position: absolute;
+      right: 46px;
+      top: 46px;
+    }
+
+    #rail {
+      position: absolute;
+      left: 150px;
+      right: 150px;
+      top: 254px;
+      height: 12px;
+      border-radius: 6px;
+      background: linear-gradient(180deg, #fafafa 0%, #b9bcc1 28%, #5d6066 55%, #a9adb3 78%, #e6e7e9 100%);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, .45);
+    }
+
+    #rail::before, #rail::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 30px;
+      border-radius: 5px;
+      top: -9px;
+      background: linear-gradient(180deg, #8d9096, #f3f3f4 45%, #7a7d83);
+    }
+
+    #rail::before {
+      left: -14px;
+    }
+
+    #rail::after {
+      right: -14px;
+    }
+
+    #rack {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1500px;
+      height: 1000px;
+      background: transparent;
+    }
+
+    .g {
+      position: absolute;
+      top: 236px;
+      width: 289px;
+      height: 300px;
+      margin-left: -144.5px;
+      perspective: 900px;
+      cursor: pointer;
+      transition: left .75s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .g i {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 4%;
+      transform: rotateY(-74deg);
+      filter: brightness(.82) drop-shadow(0 18px 18px rgba(0, 0, 0, .5));
+      transition: transform .75s cubic-bezier(.2, .8, .2, 1), filter .75s cubic-bezier(.2, .8, .2, 1);
+      background-repeat: no-repeat;
+      display: block;
+    }
+
+    .g.face i {
+      transform: rotateY(0deg);
+      filter: brightness(1) drop-shadow(0 22px 26px rgba(0, 0, 0, .55));
+    }
+
+    #cap {
+      position: absolute;
+      top: 552px;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--mute);
+      opacity: 0;
+      pointer-events: none;
+      transition: left .75s cubic-bezier(.2, .8, .2, 1), opacity .35s;
+      white-space: nowrap;
+    }
+
+    #cap.on {
+      opacity: 1;
+    }
+
+    #cap b {
+      display: block;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    #avail {
+      position: absolute;
+      left: 50%;
+      top: 790px;
+      transform: translateX(-50%);
+    }
+
+    #band {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 46px;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .band-track {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      color: var(--ink);
+      animation: luna-band 22s linear infinite;
+      will-change: transform;
+    }
+
+    .band-track span {
+      padding-right: 22px;
+    }
+
+    @keyframes luna-band {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    #det {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    #art.open #det {
+      pointer-events: auto;
+    }
+
+    #det .hit {
+      position: absolute;
+      inset: 0;
+    }
+
+    #big2, #big {
+      position: absolute;
+      left: 50%;
+      top: 244px;
+      width: 473px;
+      height: 492px;
+      margin-left: -236.5px;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+
+    #big {
+      transform-origin: 50% 4%;
+      opacity: 0;
+      filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .6));
+    }
+
+    #prev, #next {
+      position: absolute;
+      top: 452px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(241, 239, 236, .5);
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s .25s, background .25s, color .25s, border-color .25s;
+      color: var(--ink);
+    }
+
+    #prev {
+      left: calc(50% - 300px);
+    }
+
+    #next {
+      left: calc(50% + 254px);
+    }
+
+    #prev:hover, #next:hover {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    #art.open #prev, #art.open #next {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #info {
+      position: absolute;
+      left: 50%;
+      top: 770px;
+      transform: translateX(-50%);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s .25s;
+      white-space: nowrap;
+    }
+
+    #art.open #info {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #info-count {
+      font-size: 11px;
+      letter-spacing: .16em;
+      color: var(--mute);
+      text-transform: uppercase;
+    }
+
+    #info-name {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 1.15;
+      margin: 8px 0 6px;
+      color: var(--ink);
+    }
+
+    #info-price {
+      font-size: 13px;
+      letter-spacing: .08em;
+      color: var(--mute);
+      margin-bottom: 18px;
+    }
+
+    #close {
+      position: absolute;
+      right: 46px;
+      top: 46px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s .25s;
+    }
+
+    #art.open #close {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ================= PART B — "Try the Look." RUNWAY ================= */
+    runway-section {
+      display: block;
+      background: #fff;
+      color: #151413;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --rw-foot: 0.04;
+      position: relative;
+    }
+
+    .rw-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      min-height: calc(100svh - 64px);
+      background: #fff;
+    }
+
+    .rw-left {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      position: relative;
+      background: #fff;
+    }
+
+    .rw-head {
+      padding: 44px 56px 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .rw-brand-mark {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #66625c;
+      margin-bottom: 10px;
+    }
+
+    .rw-title {
+      font-size: 46px;
+      line-height: 1;
+      letter-spacing: -.02em;
+      font-weight: 500;
+      margin: 0;
+      color: #151413;
+    }
+
+    .rw-sub {
+      font-size: 12px;
+      color: #66625c;
+      margin: 10px 0 0;
+    }
+
+    .rw-stage {
+      position: relative;
+      flex: 1;
+      min-height: 460px;
+      overflow: hidden;
+      cursor: grab;
+      touch-action: pan-y;
+      outline: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .rw-stage:active {
+      cursor: grabbing;
+    }
+
+    .rw-body {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform-origin: 50% 100%;
+      will-change: transform, filter, opacity;
+      pointer-events: none;
+    }
+
+    .rw-body.is-center {
+      pointer-events: auto;
+    }
+
+    .rw-body img {
+      display: block;
+      width: auto;
+      height: 100%;
+      max-width: none;
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .rw-body img.decoded {
+      opacity: 1;
+    }
+
+    .rw-sweep {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(105deg, transparent 25%, rgba(255, 255, 255, .65) 50%, transparent 75%);
+      mix-blend-mode: soft-light;
+      opacity: 0;
+      transform: translateX(-60%);
+      z-index: 5;
+    }
+
+    .rw-sweep.active {
+      animation: rw-sweep-anim 1.5s var(--rw-ease) forwards;
+    }
+
+    @keyframes rw-sweep-anim {
+      0% { opacity: 0; transform: translateX(-60%); }
+      30% { opacity: .85; }
+      100% { opacity: 0; transform: translateX(60%); }
+    }
+
+    .rw-controls {
+      padding: 6px 44px 30px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .rw-ctrl-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid #c8c8c8;
+      display: grid;
+      place-items: center;
+      color: #151413;
+      background: #fff;
+      flex-shrink: 0;
+      transition: background .2s var(--rw-ease), color .2s var(--rw-ease), border-color .2s var(--rw-ease);
+    }
+
+    .rw-ctrl-btn:hover {
+      background: #0e0e0e;
+      color: #fff;
+      border-color: #0e0e0e;
+    }
+
+    .rw-ticks {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .rw-tick {
+      flex: 1;
+      min-width: 0;
+      text-align: left;
+      padding: 8px 0;
+      cursor: pointer;
+      transition: opacity .35s var(--rw-ease), flex .45s var(--rw-ease);
+    }
+
+    .rw-tick.past {
+      opacity: .35;
+    }
+
+    .rw-tick.active {
+      flex: 0 0 190px;
+      opacity: 1;
+    }
+
+    .rw-tick-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #66625c;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .rw-tick.active .rw-tick-meta {
+      color: #151413;
+      font-weight: 600;
+    }
+
+    .rw-tick-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: none;
+    }
+
+    .rw-tick.active .rw-tick-name {
+      display: inline;
+    }
+
+    .rw-tick-bar {
+      height: 2px;
+      width: 100%;
+      background: #e3e2df;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rw-tick-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      background: #0e0e0e;
+    }
+
+    .rw-tick.past .rw-tick-fill {
+      width: 100%;
+    }
+
+    /* Right Panel */
+    .rw-panel {
+      width: 380px;
+      padding: 32px;
+      background: #fff;
+      border-left: 1px solid #c8c8c8;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .rw-panel-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #c8c8c8;
+    }
+
+    .rw-panel-head h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
+      color: #151413;
+    }
+
+    .rw-panel-head span {
+      font-size: 12px;
+      color: #66625c;
+    }
+
+    .rw-rows {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rw-row {
+      padding: 16px 0;
+      border-bottom: 1px solid #c8c8c8;
+      animation: rw-item-in 1.1s var(--rw-ease) both;
+      transition: background .25s ease;
+    }
+
+    .rw-row.highlight {
+      background: #f5f4f1;
+      padding-left: 8px;
+      padding-right: 8px;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    @keyframes rw-item-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .rw-row-top {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr) 44px;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .rw-thumb-wrap {
+      position: relative;
+      width: 92px;
+      height: 92px;
+      background: #f6f5f2;
+      display: grid;
+      place-items: center;
+      overflow: visible;
+    }
+
+    .rw-thumb-wrap img {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+    }
+
+    .rw-badge-num {
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #0e0e0e;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      display: grid;
+      place-items: center;
+    }
+
+    .rw-new-tag {
+      position: absolute;
+      right: -4px;
+      top: 6px;
+      background: #0e0e0e;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      transform-origin: top center;
+      animation: rw-swing 2.8s ease-in-out infinite;
+    }
+
+    @keyframes rw-swing {
+      0%, 100% { transform: rotate(-4deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    .rw-row-info {
+      min-width: 0;
+    }
+
+    .rw-vendor {
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #66625c;
+      margin-bottom: 4px;
+    }
+
+    .rw-prod-link {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #151413;
+      position: relative;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .rw-prod-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: #151413;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s var(--rw-ease);
+    }
+
+    .rw-prod-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .rw-price {
+      font-size: 12px;
+      color: #151413;
+      margin-top: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rw-picked-label {
+      font-size: 11px;
+      color: #66625c;
+      margin-top: 4px;
+    }
+
+    .rw-plus-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid #c8c8c8;
+      display: grid;
+      place-items: center;
+      color: #151413;
+      transition: background .2s, color .2s, border-color .2s, transform .25s var(--rw-spring);
+    }
+
+    .rw-plus-btn:hover, .rw-plus-btn.open {
+      background: #0e0e0e;
+      color: #fff;
+      border-color: #0e0e0e;
+    }
+
+    .rw-plus-btn.in-bag {
+      background: #151413;
+      color: #fff;
+      border-color: #151413;
+    }
+
+    .rw-size-drawer {
+      display: none;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed #e0ded9;
+    }
+
+    .rw-size-drawer.open {
+      display: block;
+    }
+
+    .rw-size-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .rw-size-pill {
+      min-width: 38px;
+      height: 30px;
+      padding: 0 10px;
+      border: 1px solid #c8c8c8;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #151413;
+      background: #fff;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+
+    .rw-size-pill:hover {
+      border-color: #0e0e0e;
+    }
+
+    .rw-size-pill.selected {
+      background: #0e0e0e;
+      color: #fff;
+      border-color: #0e0e0e;
+    }
+
+    .rw-confirm-btn {
+      width: 100%;
+      height: 36px;
+      border-radius: 999px;
+      background: #0e0e0e;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .rw-confirm-btn:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    /* Bundle Footer */
+    .rw-bundle {
+      padding-top: 12px;
+    }
+
+    .rw-bundle-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #151413;
+      margin: 0 0 4px;
+    }
+
+    .rw-bundle-sub {
+      font-size: 12px;
+      color: #66625c;
+      margin: 0 0 10px;
+    }
+
+    .rw-bundle-price {
+      font-size: 14px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rw-bundle-price s {
+      color: #66625c;
+      font-size: 12px;
+    }
+
+    .rw-bundle-warn {
+      font-size: 11px;
+      color: #b3121b;
+      margin-bottom: 10px;
+      min-height: 16px;
+    }
+
+    .rw-bundle-cta {
+      width: 100%;
+      height: 46px;
+      border-radius: 999px;
+      background: #0e0e0e;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: transform .2s var(--rw-ease), background .2s;
+    }
+
+    .rw-bundle-cta:hover {
+      transform: translateY(-1px);
+    }
+
+    .rw-bundle-cta.done {
+      background: #2f5d3a;
+    }
+
+    /* Custom Runway Cursor (Desktop fine pointer) */
+    .rw-cursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 84px;
+      height: 84px;
+      margin-left: -42px;
+      margin-top: -42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(21, 20, 19, .14);
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #151413;
+      pointer-events: none;
+      z-index: 60;
+      opacity: 0;
+      transform: scale(.6);
+      transition: opacity .2s ease, transform .25s var(--rw-ease), width .2s, height .2s, margin .2s;
+    }
+
+    .rw-cursor.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .rw-cursor.dot {
+      width: 14px;
+      height: 14px;
+      margin-left: -7px;
+      margin-top: -7px;
+      background: #0e0e0e;
+      color: transparent;
+    }
+
+    @media (pointer: coarse) {
+      .rw-cursor {
+        display: none !important;
+      }
+    }
+
+    /* View Look Popup */
+    .rw-popup {
+      position: fixed;
+      inset: 0;
+      z-index: 70;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(21, 20, 19, .45);
+      backdrop-filter: blur(10px);
+      padding: 24px;
+    }
+
+    .rw-popup.open {
+      display: flex;
+    }
+
+    .rw-popup-card {
+      position: relative;
+      width: min(520px, 92vw);
+      height: min(84vh, 780px);
+      background: #fff;
+      border-radius: 14px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, .28);
+    }
+
+    .rw-popup-stage {
+      position: relative;
+      height: 92%;
+      aspect-ratio: 1100 / 1956;
+      max-width: 100%;
+    }
+
+    .rw-popup-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .rw-popup-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #0e0e0e;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      z-index: 5;
+    }
+
+    .rw-popup-label {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #66625c;
+      z-index: 5;
+    }
+
+    .rw-pin {
+      position: absolute;
+      transform: translate(-50%, -50%) scale(0);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0e0e0e;
+      color: #fff;
+      border: 2px solid #fff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+      font-size: 11px;
+      font-weight: 600;
+      display: grid;
+      place-items: center;
+      animation: rw-pin-pop .45s var(--rw-spring) forwards;
+      z-index: 4;
+    }
+
+    @keyframes rw-pin-pop {
+      to { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    .rw-pin-tip {
+      position: absolute;
+      left: 34px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(21, 20, 19, .12);
+      border-radius: 8px;
+      padding: 6px 10px;
+      white-space: nowrap;
+      color: #151413;
+      text-align: left;
+      pointer-events: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+    }
+
+    .rw-pin-tip b {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .rw-pin-tip span {
+      font-size: 10px;
+      color: #66625c;
+    }
+
+    /* Mobile Bottom-Sheet Size Picker */
+    .rw-sheet-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 75;
+      background: rgba(0, 0, 0, .45);
+      align-items: flex-end;
+    }
+
+    .rw-sheet-backdrop.open {
+      display: flex;
+    }
+
+    .rw-sheet {
+      width: 100%;
+      background: #fff;
+      color: #151413;
+      border-radius: 20px 20px 0 0;
+      padding: 20px 20px 28px;
+      animation: rw-sheet-up .35s var(--rw-sheet);
+    }
+
+    @keyframes rw-sheet-up {
+      from { transform: translateY(100%); }
+      to { transform: none; }
+    }
+
+    @media (max-width: 749px) {
+      .rw-grid {
+        grid-template-columns: 1fr;
+        min-height: 109vh;
+      }
+      .rw-head {
+        padding: 24px 20px 0;
+      }
+      .rw-title {
+        font-size: 24px;
+      }
+      .rw-stage {
+        min-height: 52vh;
+      }
+      .rw-controls {
+        display: none;
+      }
+      .rw-panel {
+        width: 100%;
+        padding: 20px 18px 28px;
+        border-left: 0;
+        border-top: 1px solid #c8c8c8;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, .06);
+      }
+      .rw-panel-head h3 {
+        font-size: 16px;
+      }
+      .rw-rows {
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 14px;
+        padding-bottom: 10px;
+      }
+      .rw-row {
+        flex: 0 0 82%;
+        scroll-snap-align: start;
+        border-bottom: 0;
+        border: 1px solid #e2e0dc;
+        border-radius: 12px;
+        padding: 12px;
+      }
+      .rw-row-top {
+        grid-template-columns: 62px minmax(0, 1fr) 40px;
+        gap: 12px;
+      }
+      .rw-thumb-wrap {
+        width: 62px;
+        height: 62px;
+      }
+      .rw-prod-link {
+        font-size: 12px;
+      }
+    }
+
+    /* ================= PART C — E-COMMERCE & EDITORIAL PAGES ================= */
+    .c-section {
+      padding: 76px 28px;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+
+    .c-section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .c-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 8px;
+    }
+
+    .c-h2 {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.05;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .c-pill {
+      height: 38px;
+      padding: 0 22px;
+      border: 1px solid rgba(241, 239, 236, .45);
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      transition: background .25s, color .25s, border-color .25s;
+      white-space: nowrap;
+    }
+
+    .c-pill:hover {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    .c-pill-primary {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    .c-pill-primary:hover {
+      background: #dcd8d1;
+      border-color: #dcd8d1;
+      color: var(--bg);
+    }
+
+    .c-pill-red {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--ink);
+    }
+
+    .c-pill-red:hover {
+      background: #960f17;
+      border-color: #960f17;
+      color: var(--ink);
+    }
+
+    /* Collections Tile Strip */
+    .collections-strip {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 1100px) {
+      .collections-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .collections-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .look-tile {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform .3s var(--rw-ease), border-color .3s;
+    }
+
+    .look-tile:hover {
+      transform: translateY(-4px);
+      border-color: rgba(241, 239, 236, .35);
+    }
+
+    .look-tile-media {
+      aspect-ratio: 3 / 4;
+      background: #eceae5;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .look-tile-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .5s var(--rw-ease);
+    }
+
+    .look-tile:hover .look-tile-media img {
+      transform: scale(1.04);
+    }
+
+    .look-tile-body {
+      padding: 14px;
+    }
+
+    .look-tile-num {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 4px;
+    }
+
+    .look-tile-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* Product Grid & 3D Tilt Cards */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    @media (max-width: 1100px) {
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 749px) {
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+    }
+
+    .p-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform .25s var(--rw-ease), border-color .25s;
+    }
+
+    .p-card:hover {
+      border-color: rgba(241, 239, 236, .36);
+    }
+
+    .p-card-media {
+      position: relative;
+      aspect-ratio: 1 / 1.08;
+      background: radial-gradient(circle at 50% 45%, #202024 0%, #121215 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 18px;
+    }
+
+    .p-card-media.light-bg {
+      background: #f5f4f0;
+    }
+
+    .p-card-media img {
+      max-width: 86%;
+      max-height: 86%;
+      object-fit: contain;
+      transition: transform .4s var(--rw-ease);
+    }
+
+    .p-card:hover .p-card-media img {
+      transform: scale(1.05);
+    }
+
+    .sprite-box {
+      width: 100%;
+      height: 100%;
+      max-width: 240px;
+      aspect-ratio: 509.6 / 530;
+      background-repeat: no-repeat;
+      filter: drop-shadow(0 16px 20px rgba(0, 0, 0, .55));
+      transition: transform .4s var(--rw-ease);
+    }
+
+    .p-card:hover .sprite-box {
+      transform: scale(1.05);
+    }
+
+    .p-wish-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(11, 11, 12, .72);
+      border: 1px solid rgba(241, 239, 236, .22);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      z-index: 2;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+
+    .p-wish-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+
+    .p-card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .p-meta {
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+
+    .p-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .p-price {
+      font-size: 13px;
+      color: var(--ink);
+      opacity: .88;
+      margin-top: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Value Props */
+    .props-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 42px 0;
+    }
+
+    @media (max-width: 900px) {
+      .props-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .props-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .prop-item h4 {
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .prop-item p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--mute);
+    }
+
+    /* Shop Filters */
+    .shop-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      height: 34px;
+      padding: 0 16px;
+      border-radius: 40px;
+      border: 1px solid var(--line);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--mute);
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .chip:hover {
+      color: var(--ink);
+      border-color: rgba(241, 239, 236, .45);
+    }
+
+    .chip.active {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    .shop-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .c-input, .c-select, .c-textarea {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    .c-input {
+      height: 38px;
+    }
+
+    .c-select {
+      height: 38px;
+    }
+
+    .c-textarea {
+      width: 100%;
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* Product Detail Page */
+    .pdp-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .pdp-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    .pdp-visual {
+      aspect-ratio: 1 / 1.05;
+      background: radial-gradient(circle at 50% 45%, #202024 0%, #111113 100%);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 36px;
+      perspective: 1000px;
+    }
+
+    .pdp-visual.light-bg {
+      background: #f5f4f0;
+    }
+
+    .pdp-visual-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .25s var(--rw-ease);
+    }
+
+    .pdp-visual img {
+      max-width: 82%;
+      max-height: 82%;
+      object-fit: contain;
+    }
+
+    .pdp-visual .sprite-box {
+      max-width: 420px;
+    }
+
+    .swatch-row, .size-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .swatch-btn {
+      height: 32px;
+      padding: 0 14px;
+      border-radius: 40px;
+      border: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--ink);
+    }
+
+    .swatch-btn.active {
+      border-color: var(--ink);
+      background: rgba(241, 239, 236, .1);
+    }
+
+    .swatch-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .3);
+    }
+
+    .size-btn {
+      min-width: 46px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .size-btn.active {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    /* Cart, Checkout, Account, Forms */
+    .two-col-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr);
+      gap: 36px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .two-col-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr) auto;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+
+    .cart-thumb {
+      width: 88px;
+      height: 94px;
+      border-radius: 8px;
+      background: #1b1b1f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    .cart-thumb.light-bg {
+      background: #f5f4f0;
+    }
+
+    .cart-thumb img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .qty-ctrl {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      height: 32px;
+    }
+
+    .qty-ctrl button {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+    }
+
+    .qty-ctrl span {
+      min-width: 24px;
+      text-align: center;
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 640px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+
+    .demo-banner {
+      padding: 12px 16px;
+      border: 1px solid rgba(241, 239, 236, .22);
+      border-radius: 8px;
+      background: rgba(241, 239, 236, .04);
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--mute);
+      margin-bottom: 20px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tl-step {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-2);
+      opacity: .45;
+    }
+
+    .tl-step.done {
+      opacity: 1;
+      border-color: var(--ink);
+    }
+
+    .tl-step small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 4px;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: #080809;
+      padding: 56px 28px 36px;
+    }
+
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+      gap: 36px;
+    }
+
+    @media (max-width: 860px) {
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-col h5 {
+      margin: 0 0 14px;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--mute);
+      font-weight: 600;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: var(--ink);
+      opacity: .82;
+      padding: 5px 0;
+    }
+
+    .footer-col a:hover {
+      opacity: 1;
+    }
+
+    .footer-bottom {
+      max-width: 1360px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--mute);
+    }
+
+    /* Floating WhatsApp & Toast */
+    .wa-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 45;
+      height: 46px;
+      padding: 0 18px;
+      border-radius: 40px;
+      background: #141417;
+      border: 1px solid rgba(241, 239, 236, .35);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .45);
+      transition: transform .2s, background .2s, color .2s;
+    }
+
+    .wa-float:hover {
+      background: var(--ink);
+      color: var(--bg);
+      transform: translateY(-2px);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%) translateY(20px);
+      z-index: 90;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 12px 22px;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s, transform .25s var(--rw-ease);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .45);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Scroll Fade-up Reveals */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s var(--rw-ease), transform .7s var(--rw-ease);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .band-track, .rw-new-tag, .rw-sweep.active, .rw-row, .rw-pin {
+        animation: none !important;
+      }
+      .rw-pin {
+        transform: translate(-50%, -50%) scale(1) !important;
+      }
+      .g, .g i, #cap, #art .dim, #art .dimmer, #prev, #next, #info, #close {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Site Navigation -->
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a href="#/" class="nav-brand">Luna</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#/" data-route="/">Home</a>
+        <a href="#/shop" data-route="/shop">Shop</a>
+        <a href="#/collections" data-route="/collections">Collections</a>
+        <a href="#/about" data-route="/about">About</a>
+        <a href="#/contact" data-route="/contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button type="button" class="nav-icon-btn" id="nav-search-toggle" aria-label="Search catalog">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span class="nav-icon-label">Search</span>
+        </button>
+        <a href="#/wishlist" class="nav-icon-btn" aria-label="Wishlist">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20.5s-7.5-4.8-9.3-9.2C1.4 8 3.5 4.8 6.8 4.5c2-.2 3.8.8 5.2 2.5 1.4-1.7 3.2-2.7 5.2-2.5 3.3.3 5.4 3.5 4.1 6.8-1.8 4.4-9.3 9.2-9.3 9.2Z"/></svg>
+          <span class="nav-count zero" id="nav-wish-count">0</span>
+        </a>
+        <a href="#/account" class="nav-icon-btn" aria-label="Account">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.6-3.8 4.8-5.5 8-5.5s6.4 1.7 8 5.5"/></svg>
+          <span class="nav-icon-label">Account</span>
+        </a>
+        <a href="#/cart" class="nav-icon-btn" aria-label="Shopping bag">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8h12l1.2 12H4.8L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="nav-count zero" id="nav-bag-count">0</span>
+        </a>
+        <button type="button" class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-bar-drop" id="search-drop">
+    <form class="search-bar-form" id="nav-search-form">
+      <input type="search" id="nav-search-input" placeholder="Search hoodies, tees, footwear, looks..." aria-label="Search products">
+      <button type="submit" class="c-pill c-pill-primary">Search</button>
+      <button type="button" class="c-pill" id="nav-search-close">Close</button>
+    </form>
+  </div>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <a href="#/">Home</a>
+    <a href="#/shop">Shop</a>
+    <a href="#/collections">Collections</a>
+    <a href="#/about">About</a>
+    <a href="#/contact">Contact</a>
+    <a href="#/wishlist">Wishlist</a>
+    <a href="#/account">Account</a>
+    <a href="#/cart">Bag</a>
+  </div>
+
+  <!-- Main View Mount -->
+  <main id="app-root"></main>
+
+  <!-- Floating WhatsApp Concierge -->
+  <a id="floating-wa" class="wa-float" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat with Luna Concierge on WhatsApp">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+    <span>Concierge</span>
+  </a>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="nav-brand" style="font-size:38px;margin-bottom:12px;">Luna Luxury Wears</div>
+        <p style="font-size:13px;line-height:1.6;color:var(--mute);max-width:34ch;margin:0;">
+          Limited-run streetwear, architectural silhouettes, and curated footwear drops. Crafted in small batches with zero restocks.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="#/shop">Shop All</a>
+        <a href="#/collections">Runway Looks</a>
+        <a href="#/shop?cat=Footwear">Footwear</a>
+        <a href="#/shop?cat=Outerwear">Outerwear</a>
+      </div>
+      <div class="footer-col">
+        <h5>House</h5>
+        <a href="#/about">About Luna</a>
+        <a href="#/contact">Contact &amp; Styling</a>
+        <a href="#/account">Order Tracking</a>
+        <a href="#/wishlist">Saved Wishlist</a>
+      </div>
+      <div class="footer-col">
+        <h5>Client Services</h5>
+        <a href="#/cart">Shopping Bag</a>
+        <a href="#/checkout">Express Checkout</a>
+        <a id="footer-wa-link" href="#" target="_blank" rel="noopener noreferrer">WhatsApp Concierge</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Luna Luxury Wears. All rights reserved.</span>
+      <span>Interactive storefront preview — local browser persistence; live payments &amp; accounts integrate via Shopify/WooCommerce + Paystack/Flutterwave.</span>
+    </div>
+  </footer>
+
+  <script>
+  (() => {
+    'use strict';
+
+    /* =========================================================================
+       SHARED CONSTANTS & CATALOG DATA
+       ========================================================================= */
+    const WHATSAPP_NUMBER = '2348000000000';
+    const SPRITE_URL = 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261107_130252_7b1b8485-d5c5-440c-8921-f5ae01054c6a.png&w=2048&q=90';
+    const RW_BASE = 'https://reel-ref-try-the-look.vercel.app/assets/';
+    const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const POLYS = [
+      'polygon(52.98% 2.08%,51.41% 3.96%,51.81% 3.96%,52.98% 2.45%,55.34% 2.45%,56.12% 3.21%,56.12% 5.47%,54.55% 7.17%,54.36% 9.25%,51.61% 10.38%,47.88% 15.09%,45.92% 16.60%,44.74% 16.60%,31.20% 23.40%,29.24% 25.28%,25.51% 30.94%,14.13% 53.58%,25.51% 60.19%,28.85% 61.70%,28.26% 82.45%,28.65% 96.79%,45.33% 96.79%,49.25% 96.42%,52.00% 95.66%,56.51% 95.66%,62.60% 96.79%,79.47% 96.79%,80.06% 90.38%,79.87% 61.89%,94.39% 53.77%,83.99% 32.08%,79.47% 24.72%,75.94% 22.26%,64.76% 16.79%,63.58% 16.79%,60.24% 13.96%,59.26% 12.08%,57.50% 10.19%,54.95% 9.25%,54.95% 7.17%,56.71% 5.09%,56.71% 3.58%,55.14% 1.89%)',
+      'polygon(53.85% 1.89%,52.47% 2.83%,51.88% 3.96%,52.28% 3.96%,53.45% 2.45%,55.61% 2.45%,56.59% 3.58%,56.59% 5.28%,54.83% 7.17%,54.83% 9.25%,52.47% 10.00%,50.90% 11.51%,49.14% 14.34%,46.39% 16.60%,45.41% 16.60%,35.60% 21.51%,30.89% 24.53%,26.77% 31.13%,26.37% 32.64%,21.86% 41.32%,15.97% 54.34%,24.80% 59.81%,29.51% 62.08%,28.53% 86.23%,28.53% 94.91%,28.92% 96.79%,44.62% 96.79%,48.55% 96.42%,52.28% 95.47%,57.77% 95.47%,60.32% 96.23%,64.05% 96.60%,80.73% 96.79%,80.93% 71.51%,80.53% 62.08%,93.88% 54.53%,93.88% 53.96%,92.90% 52.64%,92.90% 51.13%,83.87% 32.08%,79.55% 24.72%,75.63% 21.89%,71.11% 20.00%,64.84% 16.60%,63.85% 16.60%,61.89% 15.28%,58.16% 10.38%,55.22% 9.25%,55.22% 7.55%,56.79% 5.66%,57.18% 3.77%,55.81% 2.08%)',
+      'polygon(49.61% 1.89%,48.43% 2.45%,47.45% 3.96%,47.84% 3.96%,49.02% 2.45%,51.18% 2.45%,52.16% 3.40%,52.16% 5.28%,50.59% 6.98%,50.39% 9.25%,47.65% 10.38%,46.27% 11.70%,44.31% 14.72%,42.15% 16.42%,40.78% 16.60%,30.57% 21.70%,26.45% 24.53%,22.33% 31.32%,12.52% 52.08%,13.70% 54.53%,25.67% 61.51%,24.69% 86.79%,24.69% 95.28%,25.08% 96.79%,32.34% 96.42%,42.35% 96.60%,47.25% 95.85%,51.57% 95.85%,56.08% 96.60%,67.66% 96.42%,75.71% 96.79%,76.10% 96.42%,76.30% 83.21%,75.31% 61.51%,89.44% 53.77%,89.64% 53.21%,87.68% 49.81%,79.24% 31.70%,75.12% 24.91%,71.39% 22.08%,58.24% 15.85%,56.48% 14.15%,53.73% 10.38%,50.98% 9.25%,50.98% 7.17%,52.55% 5.47%,52.75% 3.58%,51.77% 2.26%)',
+      'polygon(46.35% 1.89%,45.17% 2.45%,44.19% 3.96%,46.15% 2.26%,47.72% 2.26%,49.10% 3.58%,49.10% 5.09%,47.33% 7.17%,47.14% 9.25%,44.00% 10.75%,41.64% 14.34%,38.70% 16.79%,37.72% 16.79%,25.16% 23.21%,23.00% 25.28%,20.25% 30.75%,15.15% 48.87%,10.24% 71.70%,8.48% 83.58%,8.28% 89.25%,8.87% 91.13%,8.48% 96.23%,16.13% 97.92%,17.11% 97.74%,18.49% 92.83%,19.47% 91.70%,20.45% 89.25%,22.21% 89.06%,22.41% 96.04%,23.00% 96.98%,39.87% 96.60%,44.98% 95.47%,47.14% 95.47%,51.84% 96.42%,61.07% 96.23%,71.86% 96.98%,72.25% 96.79%,72.45% 90.38%,72.84% 90.00%,74.61% 90.19%,76.18% 93.21%,77.55% 97.92%,85.60% 96.79%,85.60% 91.51%,86.19% 90.57%,86.19% 84.53%,84.81% 73.21%,82.06% 58.68%,79.12% 46.04%,75.39% 32.45%,72.65% 26.23%,71.08% 24.15%,57.34% 16.79%,55.97% 16.60%,53.22% 14.15%,51.65% 11.51%,50.47% 10.38%,47.72% 9.25%,47.72% 7.17%,49.49% 5.09%,49.49% 3.58%,48.12% 2.08%)',
+      'polygon(45.25% 1.89%,43.29% 3.96%,43.88% 3.96%,45.05% 2.45%,47.21% 2.45%,48.19% 3.40%,48.19% 5.09%,46.43% 7.36%,46.43% 9.25%,43.88% 10.19%,42.31% 11.70%,40.93% 13.96%,38.19% 16.42%,36.81% 16.60%,24.25% 22.83%,21.70% 24.91%,16.21% 34.15%,6.59% 54.15%,21.31% 62.26%,20.72% 80.94%,20.92% 96.79%,39.76% 96.79%,44.66% 96.42%,72.14% 96.79%,72.53% 96.42%,72.53% 76.23%,71.94% 62.26%,79.40% 58.49%,86.07% 54.15%,75.67% 32.08%,71.35% 24.91%,67.03% 21.89%,61.54% 19.43%,59.18% 17.92%,56.63% 16.79%,55.65% 16.79%,53.69% 15.47%,49.96% 10.57%,47.02% 9.25%,47.02% 7.17%,48.39% 5.66%,48.78% 3.77%,47.41% 2.08%)',
+      'polygon(52.39% 1.70%,50.43% 3.77%,52.20% 2.26%,54.55% 2.26%,55.53% 3.40%,55.53% 4.91%,53.57% 7.17%,53.57% 9.43%,50.63% 10.57%,47.68% 14.34%,46.31% 14.53%,42.78% 17.74%,41.60% 17.92%,29.24% 24.53%,27.08% 26.60%,24.92% 29.81%,22.17% 37.55%,19.23% 47.92%,15.70% 65.85%,14.72% 76.23%,14.52% 84.72%,15.11% 90.38%,16.68% 92.26%,17.07% 93.40%,17.07% 97.74%,17.66% 98.30%,20.02% 98.68%,25.12% 98.68%,25.71% 98.11%,26.10% 93.40%,27.86% 90.94%,28.45% 88.30%,30.02% 88.30%,30.42% 88.68%,30.61% 92.83%,31.40% 93.58%,60.44% 93.96%,63.19% 93.58%,75.16% 93.77%,75.94% 93.02%,76.33% 88.49%,78.30% 88.30%,78.89% 90.94%,80.85% 93.58%,81.44% 98.30%,82.03% 98.87%,89.29% 98.49%,90.07% 97.92%,90.07% 93.21%,91.84% 90.75%,92.03% 78.49%,90.66% 63.58%,87.91% 49.06%,83.40% 32.83%,81.44% 28.49%,78.10% 24.72%,65.74% 17.92%,64.36% 17.55%,61.03% 14.53%,59.65% 14.34%,56.51% 10.19%,53.96% 9.25%,53.96% 7.36%,55.73% 5.28%,55.93% 3.40%,54.55% 1.89%)',
+      'polygon(53.85% 1.13%,52.47% 2.08%,51.88% 3.21%,52.28% 3.21%,53.45% 1.70%,55.61% 1.70%,56.59% 2.64%,56.59% 4.34%,54.83% 6.42%,54.83% 8.30%,51.88% 9.43%,48.74% 13.58%,46.39% 15.47%,45.41% 15.47%,34.22% 20.94%,30.49% 23.21%,28.73% 25.28%,26.18% 31.13%,24.02% 37.74%,22.45% 44.53%,19.31% 63.77%,18.33% 75.66%,18.13% 86.42%,18.72% 91.51%,19.70% 93.21%,19.51% 97.55%,20.88% 98.30%,27.35% 98.87%,28.34% 94.34%,30.10% 94.15%,30.69% 95.85%,30.69% 97.92%,31.28% 98.30%,48.16% 97.92%,51.10% 97.17%,55.22% 97.17%,57.57% 97.92%,65.82% 97.74%,77.79% 98.30%,78.18% 94.72%,79.95% 94.53%,81.12% 98.87%,85.83% 98.68%,88.58% 98.11%,88.78% 93.21%,89.56% 91.89%,90.15% 87.17%,90.15% 79.81%,89.36% 68.11%,86.42% 45.85%,82.69% 30.19%,80.53% 25.28%,78.77% 23.21%,65.03% 15.85%,63.27% 15.47%,61.11% 13.58%,58.16% 9.43%,55.22% 8.30%,55.22% 6.60%,56.99% 4.34%,56.99% 2.64%,55.81% 1.32%)',
+      'polygon(48.82% 2.08%,47.06% 3.96%,48.82% 2.45%,50.78% 2.45%,51.96% 3.40%,51.96% 5.47%,50.20% 7.36%,50.20% 9.43%,47.84% 10.38%,41.37% 10.75%,34.50% 12.26%,33.52% 13.21%,33.12% 15.47%,30.57% 20.94%,30.57% 22.26%,25.27% 25.66%,23.70% 27.92%,21.55% 32.83%,16.44% 48.49%,12.32% 68.49%,11.15% 78.11%,10.75% 85.28%,11.34% 90.94%,12.52% 92.45%,12.13% 97.55%,20.37% 99.25%,20.96% 98.68%,22.14% 94.15%,23.70% 92.83%,24.29% 91.70%,25.86% 91.70%,27.04% 93.96%,27.83% 98.11%,34.30% 97.17%,46.08% 96.23%,57.85% 96.42%,72.37% 98.11%,74.14% 92.08%,74.53% 91.70%,76.10% 91.70%,76.69% 93.02%,78.45% 94.91%,79.83% 99.25%,87.68% 98.11%,88.27% 97.74%,87.87% 92.45%,89.05% 91.13%,89.44% 88.11%,89.44% 81.70%,88.66% 73.21%,87.28% 63.96%,83.95% 48.68%,79.24% 33.21%,76.69% 27.92%,74.92% 25.47%,69.62% 22.08%,69.62% 20.75%,67.27% 15.66%,66.68% 13.21%,65.31% 12.08%,62.56% 11.32%,52.94% 10.38%,50.78% 9.62%,50.59% 7.36%,52.16% 5.85%,52.55% 3.77%,52.35% 3.21%,50.59% 1.89%)',
+      'polygon(45.96% 1.32%,44.00% 3.02%,44.19% 3.40%,45.96% 1.70%,47.53% 1.70%,48.90% 2.83%,48.90% 4.53%,47.14% 6.42%,46.94% 8.68%,44.00% 9.81%,41.64% 13.21%,38.70% 15.85%,37.32% 16.04%,23.98% 22.64%,21.62% 24.72%,17.90% 30.75%,7.30% 51.70%,21.62% 59.62%,20.84% 75.09%,21.04% 98.87%,33.59% 98.68%,38.50% 99.25%,44.39% 98.30%,50.08% 98.30%,53.61% 99.06%,62.64% 98.68%,72.84% 99.06%,73.23% 98.87%,73.63% 88.68%,73.04% 60.00%,86.77% 52.26%,86.77% 51.70%,76.77% 31.51%,73.04% 25.28%,69.90% 22.45%,57.14% 16.04%,55.97% 16.04%,53.22% 13.77%,50.47% 9.81%,47.53% 8.68%,47.53% 6.42%,49.10% 4.91%,49.49% 3.40%,48.12% 1.51%,46.94% 1.13%)',
+      'polygon(45.25% 1.51%,43.29% 3.21%,43.49% 3.58%,45.25% 1.89%,47.02% 1.89%,48.19% 3.02%,48.19% 4.91%,46.43% 6.79%,46.43% 9.06%,43.29% 10.38%,34.46% 11.13%,29.75% 12.26%,28.57% 13.77%,28.18% 15.85%,25.63% 20.94%,25.63% 22.26%,20.13% 25.85%,16.60% 32.64%,13.27% 43.40%,10.32% 55.47%,7.18% 73.77%,6.59% 79.81%,6.59% 87.36%,7.18% 91.13%,8.56% 92.64%,8.36% 97.55%,8.75% 98.11%,16.60% 98.87%,17.97% 93.40%,19.15% 92.45%,19.94% 90.75%,21.70% 90.94%,22.88% 96.98%,23.47% 97.36%,35.44% 96.23%,45.45% 96.42%,46.04% 98.11%,46.62% 97.92%,46.62% 96.60%,47.41% 96.23%,56.44% 96.23%,69.00% 97.36%,69.58% 96.60%,70.57% 91.13%,72.33% 90.94%,73.31% 92.83%,74.29% 93.58%,75.86% 99.06%,83.32% 98.30%,83.71% 97.92%,83.71% 92.83%,84.89% 91.51%,85.48% 88.87%,85.68% 81.13%,85.09% 72.83%,82.34% 55.66%,79.20% 42.45%,76.06% 32.26%,72.72% 25.85%,67.43% 22.26%,67.43% 20.94%,66.05% 18.87%,64.29% 13.02%,61.73% 11.70%,56.83% 10.94%,50.35% 10.57%,48.98% 9.62%,47.02% 9.25%,46.82% 6.98%,48.59% 5.09%,48.78% 3.21%,47.21% 1.51%)'
+    ];
+
+    const RAIL_PRODUCTS = [
+      { k: 0, id: 'rail-0', name: 'Winged Skull Tee', price: 48, currency: '€', priceStr: '€48', category: 'Tees', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Obsidian', hex: '#141416' }, { name: 'Washed Charcoal', hex: '#3a3a3e' }], desc: 'Heavyweight 300gsm combed cotton boxy tee featuring archival winged skull graphic. Pre-shrunk, drop-shoulder silhouette. Strictly limited run.' },
+      { k: 1, id: 'rail-1', name: 'Heavy Blank Tee — Black', price: 38, currency: '€', priceStr: '€38', category: 'Tees', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Jet Black', hex: '#0d0d0f' }, { name: 'Slate', hex: '#2f3136' }], desc: 'Essential 320gsm heavyweight blank tee with high-ribbed collar and subtle tonal Luna neck stitch.' },
+      { k: 2, id: 'rail-2', name: 'Heavy Blank Tee — White', price: 38, currency: '€', priceStr: '€38', category: 'Tees', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Chalk White', hex: '#eeece8' }, { name: 'Bone', hex: '#ddd8ce' }], desc: 'Crisp heavyweight 320gsm chalk cotton tee engineered to hold architectural volume through every wear.' },
+      { k: 3, id: 'rail-3', name: 'Luna Longsleeve', price: 55, currency: '€', priceStr: '€55', category: 'Longsleeves', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Noir', hex: '#131315' }, { name: 'Crimson', hex: '#7a1218' }], desc: 'Signature Luna gothic chest crest and sleeve typography on garment-dyed 290gsm jersey.' },
+      { k: 4, id: 'rail-4', name: 'Rose & Chain Tee', price: 52, currency: '€', priceStr: '€52', category: 'Tees', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Faded Ink', hex: '#1c1c20' }], desc: 'Soft-hand discharge print pairing botanical thorns with heavy industrial chain motifs.' },
+      { k: 5, id: 'rail-5', name: 'Varsity Jacket', price: 240, currency: '€', priceStr: '€240', category: 'Outerwear', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Onyx / Cream', hex: '#141416' }], desc: 'Melton wool body with full-grain sleeve paneling, custom chenille patches, and quilted satin lining.' },
+      { k: 6, id: 'rail-6', name: 'No Restocks Longsleeve', price: 58, currency: '€', priceStr: '€58', category: 'Longsleeves', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Pitch Black', hex: '#101012' }], desc: 'Longsleeve capsule piece stamped with the house manifesto — numbered batch, never re-cut.' },
+      { k: 7, id: 'rail-7', name: 'Arch Logo Hoodie', price: 95, currency: '€', priceStr: '€95', category: 'Hoodies', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Washed Black', hex: '#1d1d20' }, { name: 'Ash', hex: '#6c6a66' }], desc: '500gsm loopwheel French terry hoodie with double-lined hood and arched applique lettering.' },
+      { k: 8, id: 'rail-8', name: 'Barbed Heart Tee', price: 48, currency: '€', priceStr: '€48', category: 'Tees', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Charcoal', hex: '#232327' }], desc: 'Relaxed cut heavyweight jersey showcasing metallic ink barbed-heart artwork across the chest.' },
+      { k: 9, id: 'rail-9', name: 'Black Zip Hoodie', price: 98, currency: '€', priceStr: '€98', category: 'Hoodies', vendor: 'Luna', sizes: ['S', 'M', 'L', 'XL'], colors: [{ name: 'Jet Black', hex: '#101012' }], desc: 'Two-way brushed silver Riri zipper on 520gsm cropped-boxy fleece with concealed welt pockets.' }
+    ];
+
+    const RUNWAY_PRODUCTS = {
+      'air-jordan-12-retro': { id: 'air-jordan-12-retro', name: 'Air Jordan 12 Retro', vendor: 'Luna Footwear', price: 149, currency: '$', priceStr: '$149.00', category: 'Footwear', img: RW_BASE + 'source-air-jordan-12-retro-copy.webp', sizes: ['40', '41', '42', '43', '44', '45', '46'], colors: [{ name: 'Stealth / Obsidian', hex: '#1c1d21' }], desc: 'Curated footwear silhouette selected for the Luna runway edit. Quilted leather upper with responsive cushioning.' },
+      'tatum-5-orbit': { id: 'tatum-5-orbit', name: 'Tatum 5 Orbit', vendor: 'Luna Footwear', price: 149, currency: '$', priceStr: '$149.00', category: 'Footwear', img: RW_BASE + 'source-tatum-5-orbit-copy.webp', sizes: ['40', '41', '42', '43', '44', '45', '46'], colors: [{ name: 'Orbit Grey', hex: '#888a8e' }], desc: 'Sculpted lightweight court trainer featured across Gallery Opening and Studio Day looks.' },
+      'luka-5': { id: 'luka-5', name: 'Luka 5', vendor: 'Luna Footwear', price: 149, currency: '$', priceStr: '$149.00', category: 'Footwear', img: RW_BASE + 'source-tatum-5-orbit.webp', sizes: ['40', '41', '42', '43', '44', '45', '46'], colors: [{ name: 'Mono Chrome', hex: '#2c2c30' }], desc: 'Low-profile technical footwear engineered for crisp monochrome street styling.' },
+      'tshirt': { id: 'tshirt', name: 'Tshirt', vendor: 'Luna', price: 199, currency: '$', priceStr: '$199.00', category: 'Tees', img: RW_BASE + 'source-tshirt.webp', sizes: ['S', 'L', 'M', 'XL'], colors: [{ name: 'Atelier White', hex: '#f1efec' }, { name: 'Obsidian', hex: '#151413' }], desc: 'Runway-grade structured jersey tee cut for effortless layering beneath tailored hoodies and sweatshirts.' },
+      'sweatshirt': { id: 'sweatshirt', name: 'Sweatshirt', vendor: 'Luna', price: 199, currency: '$', priceStr: '$199.00', category: 'Sweatshirts', img: RW_BASE + 'source-sweatshirt.webp', sizes: ['S', 'L', 'M', 'XL'], colors: [{ name: 'Mineral Slate', hex: '#4a4b4f' }], desc: 'Heavy brushed fleece crewneck with articulated raglan sleeves and clean tonal seams.' },
+      'sweatshirt-plus': { id: 'sweatshirt-plus', name: 'Sweatshirt Plus', vendor: 'Luna', price: 199, currency: '$', priceStr: '$199.00', category: 'Sweatshirts', img: RW_BASE + 'source-sweatshirt-plus.webp', sizes: ['S', 'L', 'M', 'XL'], colors: [{ name: 'Stone', hex: '#a6a29a' }], desc: 'Oversized Atelier edition sweatshirt with dropped shoulders and heavyweight ribbed hem.' },
+      'hoodie': { id: 'hoodie', name: 'Hoodie', vendor: 'Luna', price: 199, currency: '$', priceStr: '$199.00', category: 'Hoodies', img: RW_BASE + 'source-hoodie.webp', sizes: ['S', 'L', 'M', 'XL'], colors: [{ name: 'Graphite', hex: '#38383c' }], desc: 'Structured runway pullover hoodie spun from dense organic cotton fleece.' },
+      'hoodie-black': { id: 'hoodie-black', name: 'Hoodie Black', vendor: 'Luna', price: 199, currency: '$', priceStr: '$199.00', category: 'Hoodies', img: RW_BASE + 'source-hoodie-black.webp', sizes: ['S', 'L', 'M', 'XL'], colors: [{ name: 'Deep Noir', hex: '#101012' }], desc: 'Signature obsidian runway hoodie with structured double hood and matte hardware.' }
+    };
+
+    const ALL_PRODUCTS = [
+      ...RAIL_PRODUCTS,
+      ...Object.values(RUNWAY_PRODUCTS)
+    ];
+
+    // Look -> file mapping: 1->model-1, 2->model-5, 3->model-4, 4->model-6, 5->model-3, 6->model-2
+    const LOOKS = [
+      {
+        index: 0,
+        num: 1,
+        name: 'The City Edit',
+        file: 'model-1',
+        fileNum: 1,
+        pieces: [
+          { id: 'air-jordan-12-retro', isNew: false },
+          { id: 'tshirt', isNew: false },
+          { id: 'sweatshirt', isNew: false }
+        ],
+        pins: [
+          { x: 47, y: 27, pieceIndex: 2 },
+          { x: 48, y: 58, pieceIndex: 1 },
+          { x: 45, y: 96, pieceIndex: 0 }
+        ]
+      },
+      {
+        index: 1,
+        num: 2,
+        name: 'Gallery Opening',
+        file: 'model-5',
+        fileNum: 5,
+        pieces: [
+          { id: 'tatum-5-orbit', isNew: false },
+          { id: 'hoodie-black', isNew: true },
+          { id: 'tshirt', isNew: false }
+        ],
+        pins: [
+          { x: 50, y: 28, pieceIndex: 1 },
+          { x: 48, y: 58, pieceIndex: 2 },
+          { x: 45, y: 88, pieceIndex: 0 }
+        ]
+      },
+      {
+        index: 2,
+        num: 3,
+        name: 'Gallery Opening',
+        file: 'model-4',
+        fileNum: 4,
+        pieces: [
+          { id: 'sweatshirt-plus', isNew: false },
+          { id: 'tatum-5-orbit', isNew: true },
+          { id: 'tshirt', isNew: false }
+        ],
+        pins: [
+          { x: 50, y: 28, pieceIndex: 0 },
+          { x: 48, y: 58, pieceIndex: 2 },
+          { x: 45, y: 88, pieceIndex: 1 }
+        ]
+      },
+      {
+        index: 3,
+        num: 4,
+        name: 'Studio Day',
+        file: 'model-6',
+        fileNum: 6,
+        pieces: [
+          { id: 'hoodie-black', isNew: false },
+          { id: 'air-jordan-12-retro', isNew: false },
+          { id: 'tshirt', isNew: false }
+        ],
+        pins: [
+          { x: 48, y: 28, pieceIndex: 0 },
+          { x: 49, y: 56, pieceIndex: 2 },
+          { x: 46, y: 91, pieceIndex: 1 }
+        ]
+      },
+      {
+        index: 4,
+        num: 5,
+        name: 'Studio Day',
+        file: 'model-3',
+        fileNum: 3,
+        pieces: [
+          { id: 'sweatshirt', isNew: false },
+          { id: 'tatum-5-orbit', isNew: false },
+          { id: 'tshirt', isNew: false }
+        ],
+        pins: [
+          { x: 49, y: 28, pieceIndex: 0 },
+          { x: 48, y: 56, pieceIndex: 2 },
+          { x: 46, y: 90, pieceIndex: 1 }
+        ]
+      },
+      {
+        index: 5,
+        num: 6,
+        name: 'Studio Day',
+        file: 'model-2',
+        fileNum: 2,
+        pieces: [
+          { id: 'hoodie', isNew: false },
+          { id: 'luka-5', isNew: false },
+          { id: 'tshirt', isNew: false }
+        ],
+        pins: [
+          { x: 48, y: 28, pieceIndex: 0 },
+          { x: 49, y: 57, pieceIndex: 2 },
+          { x: 45, y: 92, pieceIndex: 1 }
+        ]
+      }
+    ];
+
+    /* =========================================================================
+       PERSISTENT STORE (CART, WISHLIST, ORDERS, USER, RUNWAY BAG)
+       ========================================================================= */
+    const LS_KEYS = {
+      cart: 'luna_cart_v1',
+      wishlist: 'luna_wishlist_v1',
+      orders: 'luna_orders_v1',
+      user: 'luna_user_v1',
+      rwBag: 'runway-styling-bag-v3'
+    };
+
+    const readJSON = (key, fallback) => {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch (_) {
+        return fallback;
+      }
+    };
+
+    const writeJSON = (key, val) => {
+      try {
+        localStorage.setItem(key, JSON.stringify(val));
+      } catch (_) {}
+    };
+
+    const store = {
+      cart: readJSON(LS_KEYS.cart, []),
+      wishlist: readJSON(LS_KEYS.wishlist, []),
+      orders: readJSON(LS_KEYS.orders, []),
+      user: readJSON(LS_KEYS.user, null),
+      rwBag: readJSON(LS_KEYS.rwBag, [])
+    };
+
+    function getProduct(id) {
+      return ALL_PRODUCTS.find(p => p.id === id) || null;
+    }
+
+    function toUSD(product) {
+      return product.currency === '€' ? Math.round(product.price * 1.08 * 100) / 100 : product.price;
+    }
+
+    function formatUSD(n) {
+      return '$' + Number(n).toFixed(2);
+    }
+
+    function buildWhatsAppUrl(text) {
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(el._t);
+      el._t = setTimeout(() => el.classList.remove('show'), 2600);
+    }
+
+    function syncHeaderCounts() {
+      const bagTotal = store.cart.reduce((s, item) => s + item.qty, 0);
+      const wishTotal = store.wishlist.length;
+      const bagEl = document.getElementById('nav-bag-count');
+      const wishEl = document.getElementById('nav-wish-count');
+      if (bagEl) {
+        bagEl.textContent = bagTotal;
+        bagEl.classList.toggle('zero', bagTotal === 0);
+      }
+      if (wishEl) {
+        wishEl.textContent = wishTotal;
+        wishEl.classList.toggle('zero', wishTotal === 0);
+      }
+    }
+
+    function addToCart(productId, size, color, qty = 1, silent = false) {
+      const p = getProduct(productId);
+      if (!p) return;
+      const chosenSize = size || p.sizes[0];
+      const chosenColor = color || p.colors[0].name;
+      const existing = store.cart.find(i => i.id === productId && i.size === chosenSize && i.color === chosenColor);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        store.cart.push({ id: productId, size: chosenSize, color: chosenColor, qty });
+      }
+      writeJSON(LS_KEYS.cart, store.cart);
+      syncHeaderCounts();
+      if (!silent) showToast(`Added ${p.name} (${chosenSize}) to bag`);
+    }
+
+    function addToRunwayBag(productId, size) {
+      const exists = store.rwBag.find(i => i.id === productId && i.size === size);
+      if (!exists) {
+        store.rwBag.push({ id: productId, size });
+        writeJSON(LS_KEYS.rwBag, store.rwBag);
+      }
+      addToCart(productId, size, null, 1, true);
+    }
+
+    function toggleWishlist(productId) {
+      const idx = store.wishlist.indexOf(productId);
+      const p = getProduct(productId);
+      if (idx >= 0) {
+        store.wishlist.splice(idx, 1);
+        showToast(p ? `Removed ${p.name} from wishlist` : 'Removed from wishlist');
+      } else {
+        store.wishlist.push(productId);
+        showToast(p ? `Saved ${p.name} to wishlist` : 'Saved to wishlist');
+      }
+      writeJSON(LS_KEYS.wishlist, store.wishlist);
+      syncHeaderCounts();
+    }
+
+    /* =========================================================================
+       SPRITE SHEET PAINT ENGINE (Shared by Part A Hero & Part C Cards/PDP)
+       ========================================================================= */
+    function paintSprite(el, k, fallbackW = 289, fallbackH = 300) {
+      if (!el) return;
+      const col = k % 5;
+      const row = Math.floor(k / 5);
+      const ROWY = [80, 700];
+      const bx = col * 409.6 - 50;
+      const by = ROWY[row];
+      const ew = el.offsetWidth || fallbackW;
+      const eh = el.offsetHeight || fallbackH;
+      const sx = ew / 509.6;
+      const sy = eh / 530;
+      el.style.backgroundImage = `url("${SPRITE_URL}")`;
+      el.style.backgroundSize = `${2048 * sx}px ${1360 * sy}px`;
+      el.style.backgroundPosition = `${-bx * sx}px ${-by * sy}px`;
+      el.style.clipPath = POLYS[k];
+      el.style.webkitClipPath = POLYS[k];
+    }
+
+    function hydrateSpriteBoxes(root) {
+      const boxes = (root || document).querySelectorAll('.sprite-box[data-sprite]');
+      boxes.forEach(box => {
+        const k = parseInt(box.getAttribute('data-sprite'), 10);
+        paintSprite(box, k, 240, 250);
+      });
+    }
+
+    let spriteResizeObs = null;
+    if (typeof ResizeObserver !== 'undefined') {
+      spriteResizeObs = new ResizeObserver(entries => {
+        for (const entry of entries) {
+          const el = entry.target;
+          const k = parseInt(el.getAttribute('data-sprite'), 10);
+          if (!Number.isNaN(k)) paintSprite(el, k);
+        }
+      });
+    }
+
+    /* =========================================================================
+       PART A — HERO CONTROLLER
+       ========================================================================= */
+    function mountHero(container) {
+      const bandSets = Array.from({ length: 16 }, () =>
+        '<span>LUNA</span><span>•</span><span>LIMITED RUN</span><span>•</span><span>NO RESTOCKS</span><span>•</span>'
+      ).join('');
+
+      container.innerHTML = `
+        <section id="hero-stage" aria-label="Luna Luxury Wears 3D Clothing Rail">
+          <div id="art">
+            <a id="about" class="ui dim" href="#/about">About</a>
+            <div id="logo" class="dim">Luna Luxury Wears</div>
+            <a id="contact" class="ui dim dimmer" href="#/contact">Contact</a>
+            <div id="rail" class="dim"></div>
+            <div id="rack" class="dim"></div>
+            <div id="cap" class="dimmer"></div>
+            <a id="avail" class="ui pill dim dimmer" href="#/shop">See availability</a>
+            <div id="band" class="dimmer" aria-hidden="true">
+              <div class="band-track">${bandSets}</div>
+            </div>
+            <div id="det">
+              <div class="hit" id="det-hit"></div>
+              <div id="big2"></div>
+              <div id="big"></div>
+              <button type="button" id="prev" aria-label="Previous garment">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+              </button>
+              <button type="button" id="next" aria-label="Next garment">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+              </button>
+              <div id="info">
+                <div id="info-count">01 / 10</div>
+                <div id="info-name"></div>
+                <div id="info-price"></div>
+                <a id="info-pill" class="ui pill" href="#/product/rail-0">See availability</a>
+              </div>
+              <button type="button" id="close" class="ui pill">Close</button>
+            </div>
+          </div>
+        </section>
+      `;
+
+      const stage = container.querySelector('#hero-stage');
+      const art = container.querySelector('#art');
+      const rack = container.querySelector('#rack');
+      const cap = container.querySelector('#cap');
+      const big = container.querySelector('#big');
+      const big2 = container.querySelector('#big2');
+      const infoCount = container.querySelector('#info-count');
+      const infoName = container.querySelector('#info-name');
+      const infoPrice = container.querySelector('#info-price');
+      const infoPill = container.querySelector('#info-pill');
+      const prevBtn = container.querySelector('#prev');
+      const nextBtn = container.querySelector('#next');
+      const closeBtn = container.querySelector('#close');
+      const detHit = container.querySelector('#det-hit');
+
+      const SLOT = 108;
+      const OPEN = 86;
+      const CX = 750;
+      const G = [];
+      let hov = -1;
+      let open = -1;
+      let closeTimer = null;
+      let activeBigAnim = null;
+
+      function fitArt() {
+        const w = stage.clientWidth;
+        const h = stage.clientHeight;
+        const k = Math.min(w / 1500, h / 1000);
+        art.style.transform = `scale(${k})`;
+        art.style.left = `${(w - 1500 * k) / 2}px`;
+        art.style.top = `${(h - 1000 * k) / 2}px`;
+      }
+
+      fitArt();
+      const ro = new ResizeObserver(fitArt);
+      ro.observe(stage);
+
+      function slotX(k) {
+        let x = CX + (k - 4.5) * SLOT;
+        if (hov >= 0) {
+          if (k < hov) x -= OPEN;
+          else if (k > hov) x += OPEN;
+        }
+        return x;
+      }
+
+      function layout() {
+        for (let k = 0; k < 10; k++) {
+          const x = slotX(k);
+          G[k].style.left = `${x}px`;
+          G[k].classList.toggle('face', k === hov);
+        }
+        if (hov >= 0 && open < 0) {
+          const item = RAIL_PRODUCTS[hov];
+          cap.style.left = `${slotX(hov)}px`;
+          cap.innerHTML = `<b>${item.name}</b>${item.priceStr}`;
+          cap.classList.add('on');
+        } else {
+          cap.classList.remove('on');
+        }
+      }
+
+      function setHov(k) {
+        if (open >= 0) return;
+        hov = k;
+        layout();
+      }
+
+      for (let k = 0; k < 10; k++) {
+        const g = document.createElement('div');
+        g.className = 'g';
+        g.setAttribute('role', 'button');
+        g.setAttribute('tabindex', '0');
+        g.setAttribute('aria-label', `${RAIL_PRODUCTS[k].name} ${RAIL_PRODUCTS[k].priceStr}`);
+        const inn = document.createElement('i');
+        g.appendChild(inn);
+        rack.appendChild(g);
+        paintSprite(inn, k, 289, 300);
+        g.addEventListener('pointerenter', () => {
+          if (open < 0) setHov(k);
+        });
+        g.addEventListener('click', () => {
+          if (open < 0) openG(k);
+        });
+        g.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && open < 0) {
+            e.preventDefault();
+            openG(k);
+          }
+        });
+        G.push(g);
+      }
+
+      rack.addEventListener('pointerleave', () => {
+        if (open < 0) setHov(-1);
+      });
+
+      layout();
+
+      function fillDetailMeta(k) {
+        const p = RAIL_PRODUCTS[k];
+        infoCount.textContent = `${String(k + 1).padStart(2, '0')} / 10`;
+        infoName.textContent = p.name;
+        infoPrice.textContent = p.priceStr;
+        infoPill.href = `#/product/${p.id}`;
+      }
+
+      function openG(k) {
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        if (activeBigAnim) {
+          activeBigAnim.cancel();
+          activeBigAnim = null;
+        }
+        if (open >= 0 && G[open]) G[open].style.visibility = '';
+
+        open = k;
+        hov = k;
+        layout();
+        const gx = slotX(k);
+        paintSprite(big, k, 473, 492);
+        fillDetailMeta(k);
+        art.classList.add('open');
+        G[k].style.visibility = 'hidden';
+
+        if (REDUCED_MOTION) {
+          big.style.opacity = '1';
+          big.style.transform = 'none';
+          return;
+        }
+
+        activeBigAnim = big.animate([
+          { transform: `translate(${gx - 750}px, -8px) scale(.61)`, opacity: 1 },
+          { transform: 'none', opacity: 1 }
+        ], {
+          duration: 750,
+          easing: 'cubic-bezier(.2,.8,.2,1)',
+          fill: 'forwards'
+        });
+      }
+
+      function step(d) {
+        if (open < 0) return;
+        const prevOpen = open;
+        const nextOpen = (open + d + 10) % 10;
+        G[prevOpen].style.visibility = '';
+        G[nextOpen].style.visibility = 'hidden';
+        open = nextOpen;
+        hov = nextOpen;
+        layout();
+        fillDetailMeta(nextOpen);
+
+        paintSprite(big2, prevOpen, 473, 492);
+        paintSprite(big, nextOpen, 473, 492);
+
+        if (REDUCED_MOTION) {
+          big2.style.opacity = '0';
+          big.style.opacity = '1';
+          big.style.transform = 'none';
+          return;
+        }
+
+        big2.animate([
+          { transform: 'none', opacity: 1, filter: 'blur(0px)' },
+          { transform: `translateX(${-d * 120}px) scale(.94)`, opacity: 0, filter: 'blur(6px)' }
+        ], {
+          duration: 600,
+          easing: 'cubic-bezier(.2,.8,.2,1)',
+          fill: 'forwards'
+        });
+
+        activeBigAnim = big.animate([
+          { transform: `translateX(${d * 120}px) scale(.94)`, opacity: 0, filter: 'blur(6px)' },
+          { transform: 'none', opacity: 1, filter: 'blur(0px)' }
+        ], {
+          duration: 600,
+          easing: 'cubic-bezier(.2,.8,.2,1)',
+          fill: 'forwards'
+        });
+      }
+
+      function closeG() {
+        if (open < 0) return;
+        const k = open;
+        const gx = slotX(k);
+        art.classList.remove('open');
+
+        if (REDUCED_MOTION) {
+          G[k].style.visibility = '';
+          big.style.opacity = '0';
+          hov = -1;
+          open = -1;
+          layout();
+          return;
+        }
+
+        activeBigAnim = big.animate([
+          { transform: 'none', opacity: 1 },
+          { transform: `translate(${gx - 750}px, -8px) scale(.61)`, opacity: 1 }
+        ], {
+          duration: 650,
+          easing: 'cubic-bezier(.2,.8,.2,1)',
+          fill: 'forwards'
+        });
+
+        closeTimer = setTimeout(() => {
+          if (activeBigAnim) activeBigAnim.cancel();
+          big.style.opacity = '0';
+          G[k].style.visibility = '';
+          hov = -1;
+          open = -1;
+          layout();
+          closeTimer = null;
+        }, 650);
+      }
+
+      prevBtn.addEventListener('click', () => step(-1));
+      nextBtn.addEventListener('click', () => step(1));
+      closeBtn.addEventListener('click', closeG);
+      detHit.addEventListener('click', closeG);
+
+      const onKey = (e) => {
+        if (!document.body.contains(art)) return;
+        const tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+        if (open >= 0) {
+          if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+          else if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+          else if (e.key === 'Escape') { e.preventDefault(); closeG(); }
+        } else {
+          const heroRect = stage.getBoundingClientRect();
+          const inView = heroRect.bottom > 80 && heroRect.top < window.innerHeight * 0.7;
+          if (!inView) return;
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            setHov(Math.min(9, hov + 1));
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            setHov(hov < 0 ? 9 : Math.max(0, hov - 1));
+          } else if (e.key === 'Enter' && hov >= 0 && !e.target.closest('a,button')) {
+            e.preventDefault();
+            openG(hov);
+          }
+        }
+      };
+
+      window.addEventListener('keydown', onKey);
+      window.__closet = { openG, step, closeG, setHov };
+
+      return () => {
+        ro.disconnect();
+        window.removeEventListener('keydown', onKey);
+        if (closeTimer) clearTimeout(closeTimer);
+      };
+    }
+
+    /* =========================================================================
+       PART B — <runway-section> CUSTOM ELEMENT
+       ========================================================================= */
+    class RunwaySection extends HTMLElement {
+      connectedCallback() {
+        if (this._mounted) return;
+        this._mounted = true;
+
+        this.cur = REDUCED_MOTION ? 0 : -1.15;
+        this.target = 0;
+        this.vel = 0;
+        this.activeLook = 0;
+        this.autoplay = !REDUCED_MOTION;
+        this.engaged = false;
+        this.panelHovered = false;
+        this.popupOpen = false;
+        this.dragging = false;
+        this.wheelLocked = false;
+        this.selectedSizes = {}; // { 'lookIdx-pieceIdx': 'M' }
+        this.openDrawerKey = null;
+        this.footOffsets = {}; // file -> ratio
+
+        this.renderShell();
+        this.setupBodies();
+        this.bindStageEvents();
+        this.renderPanel();
+        this.updateTicks();
+        this.startLoop();
+        this.scheduleAutoplay();
+      }
+
+      disconnectedCallback() {
+        if (this._raf) cancelAnimationFrame(this._raf);
+        if (this._autoTimer) clearTimeout(this._autoTimer);
+        if (this._cursor && this._cursor.parentNode) this._cursor.remove();
+        if (this._popup && this._popup.parentNode) this._popup.remove();
+        if (this._sheet && this._sheet.parentNode) this._sheet.remove();
+        if (this._ro) this._ro.disconnect();
+        this._mounted = false;
+      }
+
+      renderShell() {
+        this.innerHTML = `
+          <div class="rw-grid">
+            <div class="rw-left">
+              <div class="rw-head">
+                <div>
+                  <div class="rw-brand-mark">Luna</div>
+                  <h2 class="rw-title">Try the Look.</h2>
+                  <p class="rw-sub">Six looks, styled head to toe. Tap a pin to see the piece.</p>
+                </div>
+              </div>
+              <div class="rw-stage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Try the Look. — use arrow keys or swipe to change look">
+                <div class="rw-sweep"></div>
+              </div>
+              <div class="rw-controls">
+                <button type="button" class="rw-ctrl-btn rw-prev" aria-label="Previous look">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3L5 8l5 5"/></svg>
+                </button>
+                <div class="rw-ticks">
+                  ${LOOKS.map((lk, idx) => `
+                    <button type="button" class="rw-tick" data-look="${idx}" aria-label="Look ${String(idx + 1).padStart(2, '0')} ${lk.name}">
+                      <div class="rw-tick-meta">
+                        <span>${String(idx + 1).padStart(2, '0')}</span>
+                        <span class="rw-tick-name">${lk.name}</span>
+                      </div>
+                      <div class="rw-tick-bar"><div class="rw-tick-fill"></div></div>
+                    </button>
+                  `).join('')}
+                </div>
+                <button type="button" class="rw-ctrl-btn rw-play-toggle" aria-label="Pause autoplay">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2.5" width="3.5" height="11"/><rect x="9.5" y="2.5" width="3.5" height="11"/></svg>
+                </button>
+                <button type="button" class="rw-ctrl-btn rw-next" aria-label="Next look">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3l5 5-5 5"/></svg>
+                </button>
+              </div>
+            </div>
+            <aside class="rw-panel" aria-label="In this look">
+              <div>
+                <div class="rw-panel-head">
+                  <h3>In this look</h3>
+                  <span>3 pieces</span>
+                </div>
+                <div class="rw-rows"></div>
+              </div>
+              <div class="rw-bundle">
+                <div class="rw-bundle-title">Complete the look</div>
+                <div class="rw-bundle-sub">Bundle all 3 and save 10%</div>
+                <div class="rw-bundle-price">
+                  <s>$547.00</s>
+                  <strong>$492.30</strong>
+                </div>
+                <div class="rw-bundle-warn" aria-live="polite"></div>
+                <button type="button" class="rw-bundle-cta">Add full look to bag</button>
+              </div>
+            </aside>
+          </div>
+        `;
+
+        this.stage = this.querySelector('.rw-stage');
+        this.sweepEl = this.querySelector('.rw-sweep');
+        this.panel = this.querySelector('.rw-panel');
+        this.rowsEl = this.querySelector('.rw-rows');
+        this.ticks = Array.from(this.querySelectorAll('.rw-tick'));
+        this.playToggleBtn = this.querySelector('.rw-play-toggle');
+        this.bundleWarn = this.querySelector('.rw-bundle-warn');
+        this.bundleCta = this.querySelector('.rw-bundle-cta');
+
+        // Custom desktop cursor
+        this._cursor = document.createElement('div');
+        this._cursor.className = 'rw-cursor';
+        this._cursor.textContent = 'Drag';
+        document.body.appendChild(this._cursor);
+
+        // Popup modal
+        this._popup = document.createElement('div');
+        this._popup.className = 'rw-popup';
+        this._popup.setAttribute('role', 'dialog');
+        this._popup.setAttribute('aria-modal', 'true');
+        this._popup.innerHTML = `
+          <div class="rw-popup-card">
+            <div class="rw-popup-label"></div>
+            <button type="button" class="rw-popup-close" aria-label="Close look popup">&times;</button>
+            <div class="rw-popup-stage"></div>
+          </div>
+        `;
+        document.body.appendChild(this._popup);
+
+        // Mobile bottom sheet size picker
+        this._sheet = document.createElement('div');
+        this._sheet.className = 'rw-sheet-backdrop';
+        this._sheet.innerHTML = `<div class="rw-sheet"></div>`;
+        document.body.appendChild(this._sheet);
+      }
+
+      setupBodies() {
+        this.bodies = [];
+        for (let a = 0; a < 12; a++) {
+          const lk = LOOKS[a % 6];
+          const body = document.createElement('div');
+          body.className = 'rw-body';
+          const img = document.createElement('img');
+          img.width = 1100;
+          img.height = 1956;
+          img.sizes = '(min-width:1800px) 540px,(min-width:750px) 420px,320px';
+          img.src = `${RW_BASE}${lk.file}-640.webp`;
+          img.srcset = `${RW_BASE}${lk.file}-640.webp 640w, ${RW_BASE}original-look-${lk.fileNum}.webp 1080w`;
+          img.alt = `${lk.name} — Look ${lk.num}`;
+          img.draggable = false;
+          img.crossOrigin = 'anonymous';
+
+          const onReady = () => {
+            img.classList.add('decoded');
+            if (a < 6 && this.footOffsets[lk.file] == null) {
+              this.detectFeet(img, lk.file);
+            }
+          };
+
+          if (img.decode) {
+            img.decode().then(onReady).catch(() => {
+              if (img.complete) onReady();
+              else img.addEventListener('load', onReady, { once: true });
+            });
+          } else {
+            img.addEventListener('load', onReady, { once: true });
+          }
+
+          body.appendChild(img);
+          this.stage.appendChild(body);
+          this.bodies.push({ a, lookIdx: a % 6, el: body, img });
+        }
+      }
+
+      detectFeet(img, fileKey) {
+        try {
+          const size = 48;
+          const canvas = document.createElement('canvas');
+          canvas.width = size;
+          canvas.height = size;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return;
+          ctx.drawImage(img, 0, 0, size, size);
+          const data = ctx.getImageData(0, 0, size, size).data;
+          let bottomRow = size - 1;
+          let found = false;
+          for (let y = size - 1; y >= 0; y--) {
+            for (let x = 0; x < size; x++) {
+              const alpha = data[(y * size + x) * 4 + 3];
+              if (alpha > 40) {
+                bottomRow = y;
+                found = true;
+                break;
+              }
+            }
+            if (found) break;
+          }
+          const footRatio = Math.max(0, Math.min(0.4, (size - 1 - bottomRow) / size));
+          this.footOffsets[fileKey] = footRatio;
+        } catch (_) {
+          this.footOffsets[fileKey] = 0.04;
+        }
+      }
+
+      bindStageEvents() {
+        this.querySelector('.rw-prev').addEventListener('click', () => {
+          this.engage(false);
+          this.prev();
+        });
+        this.querySelector('.rw-next').addEventListener('click', () => {
+          this.engage(false);
+          this.next();
+        });
+        this.ticks.forEach((btn, idx) => {
+          btn.addEventListener('click', () => {
+            this.engage(false);
+            this.go(idx);
+          });
+        });
+
+        this.playToggleBtn.addEventListener('click', () => {
+          if (this.autoplay) {
+            this.autoplay = false;
+            this.engaged = true;
+            this.clearAutoplay();
+          } else {
+            this.engaged = false;
+            this.autoplay = !REDUCED_MOTION;
+            this.scheduleAutoplay();
+          }
+          this.updatePlayButton();
+        });
+
+        this.panel.addEventListener('pointerenter', () => {
+          this.panelHovered = true;
+          this.clearAutoplay();
+        });
+        this.panel.addEventListener('pointerleave', () => {
+          this.panelHovered = false;
+          this.scheduleAutoplay();
+        });
+
+        // Stage pointer drag + View click
+        let startX = 0;
+        let startY = 0;
+        let startTarget = 0;
+        let lastX = 0;
+        let lastTime = 0;
+        let vx = 0;
+        let didDrag = false;
+        let lockedAxis = null;
+
+        this.stage.addEventListener('pointerdown', (e) => {
+          if (e.button !== 0 && e.pointerType === 'mouse') return;
+          this.dragging = true;
+          didDrag = false;
+          lockedAxis = null;
+          startX = e.clientX;
+          startY = e.clientY;
+          lastX = e.clientX;
+          lastTime = performance.now();
+          startTarget = this.cur;
+          vx = 0;
+          this.clearAutoplay();
+          try { this.stage.setPointerCapture(e.pointerId); } catch (_) {}
+        });
+
+        this.stage.addEventListener('pointermove', (e) => {
+          if (e.pointerType === 'mouse' && window.matchMedia('(pointer: fine)').matches) {
+            this._cursor.style.left = e.clientX + 'px';
+            this._cursor.style.top = e.clientY + 'px';
+            this._cursor.classList.add('visible');
+            const overCenter = !!e.target.closest('.rw-body.is-center');
+            this._cursor.textContent = overCenter ? 'View' : 'Drag';
+          }
+          if (!this.dragging) return;
+          const dx = e.clientX - startX;
+          const dy = e.clientY - startY;
+          if (!lockedAxis) {
+            if (Math.abs(dy) > 8 && Math.abs(dy) > Math.abs(dx) * 1.2) {
+              lockedAxis = 'y';
+              this.dragging = false;
+              return;
+            }
+            if (Math.abs(dx) > 8) {
+              lockedAxis = 'x';
+              didDrag = true;
+            }
+          }
+          if (lockedAxis === 'x') {
+            const w = Math.max(320, this.stage.clientWidth);
+            const deltaSlides = -dx / (w * 0.24);
+            this.target = startTarget + deltaSlides;
+            this.cur = this.target;
+            const now = performance.now();
+            const dt = Math.max(8, now - lastTime);
+            vx = (e.clientX - lastX) / dt;
+            lastX = e.clientX;
+            lastTime = now;
+          }
+        });
+
+        const endDrag = (e) => {
+          if (!this.dragging) return;
+          this.dragging = false;
+          if (didDrag) {
+            const mom = Math.max(-2, Math.min(2, -vx * 2.2));
+            const snap = Math.round(this.target + mom);
+            this.goRaw(snap);
+          } else if (e.target && e.target.closest('.rw-body.is-center')) {
+            this.openLookPopup();
+          }
+          this.scheduleAutoplay();
+        };
+
+        this.stage.addEventListener('pointerup', endDrag);
+        this.stage.addEventListener('pointercancel', endDrag);
+        this.stage.addEventListener('pointerleave', () => {
+          this._cursor.classList.remove('visible');
+        });
+
+        // Horizontal trackpad wheel
+        this.stage.addEventListener('wheel', (e) => {
+          if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) >= 45) {
+            e.preventDefault();
+            if (this.wheelLocked) return;
+            this.wheelLocked = true;
+            if (e.deltaX > 0) this.next();
+            else this.prev();
+            setTimeout(() => { this.wheelLocked = false; }, 520);
+          }
+        }, { passive: false });
+
+        // Keyboard navigation on stage
+        this.stage.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowRight') { e.preventDefault(); this.next(); }
+          else if (e.key === 'ArrowLeft') { e.preventDefault(); this.prev(); }
+          else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.openLookPopup(); }
+        });
+
+        // Popup bindings
+        this._popup.querySelector('.rw-popup-close').addEventListener('click', () => this.closeLookPopup());
+        this._popup.addEventListener('click', (e) => {
+          if (e.target === this._popup) this.closeLookPopup();
+        });
+        this._onPopupKey = (e) => {
+          if (e.key === 'Escape' && this.popupOpen) this.closeLookPopup();
+        };
+        window.addEventListener('keydown', this._onPopupKey);
+
+        this._sheet.addEventListener('click', (e) => {
+          if (e.target === this._sheet) this._sheet.classList.remove('open');
+        });
+
+        // Bundle CTA
+        this.bundleCta.addEventListener('click', () => {
+          this.engage(true);
+          const lk = LOOKS[this.activeLook];
+          const missing = [];
+          lk.pieces.forEach((piece, pi) => {
+            const key = `${this.activeLook}-${pi}`;
+            if (!this.selectedSizes[key]) {
+              missing.push(RUNWAY_PRODUCTS[piece.id].name);
+            }
+          });
+          if (missing.length) {
+            this.bundleWarn.textContent = `Pick a size for: ${missing.join(', ')}`;
+            return;
+          }
+          this.bundleWarn.textContent = '';
+          lk.pieces.forEach((piece, pi) => {
+            const key = `${this.activeLook}-${pi}`;
+            addToRunwayBag(piece.id, this.selectedSizes[key]);
+          });
+          showToast(`Full look "${lk.name}" added to bag`);
+          this.renderPanel();
+        });
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) this.clearAutoplay();
+          else this.scheduleAutoplay();
+        });
+      }
+
+      engage(permanent) {
+        if (permanent) {
+          this.engaged = true;
+          this.autoplay = false;
+          this.clearAutoplay();
+          this.updatePlayButton();
+        }
+      }
+
+      updatePlayButton() {
+        if (!this.playToggleBtn) return;
+        this.playToggleBtn.setAttribute('aria-label', this.autoplay ? 'Pause autoplay' : 'Resume autoplay');
+        this.playToggleBtn.innerHTML = this.autoplay
+          ? '<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2.5" width="3.5" height="11"/><rect x="9.5" y="2.5" width="3.5" height="11"/></svg>'
+          : '<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5l9 5.5-9 5.5V2.5z"/></svg>';
+      }
+
+      clearAutoplay() {
+        if (this._autoTimer) {
+          clearTimeout(this._autoTimer);
+          this._autoTimer = null;
+        }
+      }
+
+      scheduleAutoplay() {
+        this.clearAutoplay();
+        if (!this.autoplay || this.engaged || this.panelHovered || this.popupOpen || this.dragging || document.hidden || REDUCED_MOTION) {
+          return;
+        }
+        this.animateActiveTickBar();
+        this._autoTimer = setTimeout(() => {
+          this.next();
+          this.scheduleAutoplay();
+        }, 5000);
+      }
+
+      animateActiveTickBar() {
+        this.ticks.forEach((t, idx) => {
+          const fill = t.querySelector('.rw-tick-fill');
+          if (!fill) return;
+          fill.style.transition = 'none';
+          if (idx < this.activeLook) fill.style.width = '100%';
+          else if (idx > this.activeLook) fill.style.width = '0%';
+          else {
+            fill.style.width = '0%';
+            void fill.offsetWidth;
+            if (this.autoplay && !this.engaged && !this.panelHovered && !this.popupOpen) {
+              fill.style.transition = 'width 5000ms linear';
+              fill.style.width = '100%';
+            } else {
+              fill.style.width = '100%';
+            }
+          }
+        });
+      }
+
+      next() {
+        this.goRaw(Math.round(this.target) + 1);
+      }
+
+      prev() {
+        this.goRaw(Math.round(this.target) - 1);
+      }
+
+      go(lookIdx) {
+        const currentMod = ((Math.round(this.target) % 6) + 6) % 6;
+        let diff = lookIdx - currentMod;
+        if (diff > 3) diff -= 6;
+        if (diff < -3) diff += 6;
+        this.goRaw(Math.round(this.target) + diff);
+      }
+
+      goRaw(newTarget) {
+        if (this.popupOpen) this.closeLookPopup();
+        this.target = newTarget;
+        const nextLook = ((newTarget % 6) + 6) % 6;
+        if (REDUCED_MOTION) {
+          this.cur = newTarget;
+          this.vel = 0;
+        }
+        if (nextLook !== this.activeLook) {
+          this.activeLook = nextLook;
+          this.openDrawerKey = null;
+          this.triggerSweep();
+          this.renderPanel();
+          this.updateTicks();
+        }
+        this.scheduleAutoplay();
+      }
+
+      triggerSweep() {
+        if (REDUCED_MOTION || !this.sweepEl) return;
+        this.sweepEl.classList.remove('active');
+        void this.sweepEl.offsetWidth;
+        this.sweepEl.classList.add('active');
+      }
+
+      updateTicks() {
+        this.ticks.forEach((t, idx) => {
+          t.classList.toggle('active', idx === this.activeLook);
+          t.classList.toggle('past', idx < this.activeLook);
+        });
+        this.animateActiveTickBar();
+      }
+
+      renderPanel() {
+        const lk = LOOKS[this.activeLook];
+        this.bundleWarn.textContent = '';
+
+        let allInBag = true;
+        this.rowsEl.innerHTML = lk.pieces.map((piece, i) => {
+          const prod = RUNWAY_PRODUCTS[piece.id];
+          const key = `${this.activeLook}-${i}`;
+          const pickedSize = this.selectedSizes[key] || '';
+          const inBag = pickedSize ? store.rwBag.some(b => b.id === piece.id && b.size === pickedSize) : store.rwBag.some(b => b.id === piece.id);
+          if (!inBag) allInBag = false;
+          const isOpen = this.openDrawerKey === key;
+
+          return `
+            <div class="rw-row" data-row-idx="${i}" style="animation-delay:${REDUCED_MOTION ? 0 : i * 85 + 140}ms">
+              <div class="rw-row-top">
+                <div class="rw-thumb-wrap">
+                  <img src="${prod.img}" alt="${prod.name}" loading="lazy" referrerpolicy="no-referrer">
+                  <span class="rw-badge-num">${i + 1}</span>
+                  ${piece.isNew ? '<span class="rw-new-tag">New</span>' : ''}
+                </div>
+                <div class="rw-row-info">
+                  <div class="rw-vendor">${prod.vendor}</div>
+                  <a class="rw-prod-link" href="#/product/${prod.id}">${prod.name}</a>
+                  <div class="rw-price">${prod.priceStr}</div>
+                  ${pickedSize ? `<div class="rw-picked-label">Size ${pickedSize}${inBag ? ' · In bag' : ''}</div>` : ''}
+                </div>
+                <button type="button" class="rw-plus-btn ${isOpen ? 'open' : ''} ${inBag ? 'in-bag' : ''}" data-plus="${i}" aria-label="Select size for ${prod.name}">
+                  ${inBag ? '✓' : (isOpen ? '−' : '+')}
+                </button>
+              </div>
+              <div class="rw-size-drawer ${isOpen ? 'open' : ''}">
+                <div class="rw-size-pills">
+                  ${prod.sizes.map(sz => `
+                    <button type="button" class="rw-size-pill ${pickedSize === sz ? 'selected' : ''}" data-sz="${sz}" data-pi="${i}">${sz}</button>
+                  `).join('')}
+                </div>
+                <button type="button" class="rw-confirm-btn" data-confirm="${i}" ${pickedSize ? '' : 'disabled'}>Add to bag</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        this.bundleCta.textContent = allInBag ? 'Full look in your bag' : 'Add full look to bag';
+        this.bundleCta.classList.toggle('done', allInBag);
+
+        this.rowsEl.querySelectorAll('[data-plus]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            this.engage(true);
+            const pi = parseInt(btn.getAttribute('data-plus'), 10);
+            const key = `${this.activeLook}-${pi}`;
+            if (window.innerWidth <= 749) {
+              this.openMobileSheet(pi);
+              return;
+            }
+            this.openDrawerKey = this.openDrawerKey === key ? null : key;
+            this.renderPanel();
+          });
+        });
+
+        this.rowsEl.querySelectorAll('[data-sz]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            this.engage(true);
+            const pi = parseInt(btn.getAttribute('data-pi'), 10);
+            const sz = btn.getAttribute('data-sz');
+            this.selectedSizes[`${this.activeLook}-${pi}`] = sz;
+            this.renderPanel();
+          });
+        });
+
+        this.rowsEl.querySelectorAll('[data-confirm]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            this.engage(true);
+            const pi = parseInt(btn.getAttribute('data-confirm'), 10);
+            const key = `${this.activeLook}-${pi}`;
+            const sz = this.selectedSizes[key];
+            if (!sz) return;
+            const piece = LOOKS[this.activeLook].pieces[pi];
+            addToRunwayBag(piece.id, sz);
+            showToast(`Added ${RUNWAY_PRODUCTS[piece.id].name} (${sz}) to bag`);
+            this.openDrawerKey = null;
+            this.renderPanel();
+          });
+        });
+      }
+
+      openMobileSheet(pi) {
+        const lk = LOOKS[this.activeLook];
+        const piece = lk.pieces[pi];
+        const prod = RUNWAY_PRODUCTS[piece.id];
+        const key = `${this.activeLook}-${pi}`;
+        const curSz = this.selectedSizes[key] || '';
+        const sheetBody = this._sheet.querySelector('.rw-sheet');
+        sheetBody.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <div>
+              <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#66625c;">${prod.vendor}</div>
+              <div style="font-size:16px;font-weight:600;">${prod.name} — ${prod.priceStr}</div>
+            </div>
+            <button type="button" id="rw-sheet-close" style="font-size:22px;padding:4px 10px;">&times;</button>
+          </div>
+          <div class="rw-size-pills" style="margin-bottom:16px;">
+            ${prod.sizes.map(sz => `<button type="button" class="rw-size-pill ${curSz === sz ? 'selected' : ''}" data-msz="${sz}">${sz}</button>`).join('')}
+          </div>
+          <button type="button" class="rw-confirm-btn" id="rw-sheet-add" ${curSz ? '' : 'disabled'}>Add to bag</button>
+        `;
+        this._sheet.classList.add('open');
+        sheetBody.querySelector('#rw-sheet-close').addEventListener('click', () => this._sheet.classList.remove('open'));
+        sheetBody.querySelectorAll('[data-msz]').forEach(b => {
+          b.addEventListener('click', () => {
+            this.selectedSizes[key] = b.getAttribute('data-msz');
+            sheetBody.querySelectorAll('[data-msz]').forEach(x => x.classList.toggle('selected', x === b));
+            sheetBody.querySelector('#rw-sheet-add').disabled = false;
+          });
+        });
+        sheetBody.querySelector('#rw-sheet-add').addEventListener('click', () => {
+          const sz = this.selectedSizes[key];
+          if (!sz) return;
+          addToRunwayBag(piece.id, sz);
+          showToast(`Added ${prod.name} (${sz}) to bag`);
+          this._sheet.classList.remove('open');
+          this.renderPanel();
+        });
+      }
+
+      openLookPopup() {
+        this.engage(true);
+        this.popupOpen = true;
+        this.clearAutoplay();
+        const lk = LOOKS[this.activeLook];
+        const card = this._popup.querySelector('.rw-popup-card');
+        const label = this._popup.querySelector('.rw-popup-label');
+        const stage = this._popup.querySelector('.rw-popup-stage');
+        label.textContent = `Look ${String(lk.num).padStart(2, '0')} — ${lk.name}`;
+
+        stage.innerHTML = `<img src="${RW_BASE}original-look-${lk.fileNum}.webp" alt="${lk.name}">` +
+          lk.pins.map((pin, pi) => {
+            const piece = lk.pieces[pin.pieceIndex];
+            const prod = RUNWAY_PRODUCTS[piece.id];
+            const delay = REDUCED_MOTION ? 0 : pi * 110 + 600;
+            return `
+              <button type="button" class="rw-pin" data-pin-piece="${pin.pieceIndex}" style="left:${pin.x}%;top:${pin.y}%;animation-delay:${delay}ms;" aria-label="${prod.name}">
+                ${pin.pieceIndex + 1}
+                <span class="rw-pin-tip"><b>${prod.name}</b><span>${prod.priceStr}</span></span>
+              </button>
+            `;
+          }).join('');
+
+        this._popup.classList.add('open');
+
+        // FLIP-style grow from center body
+        if (!REDUCED_MOTION) {
+          const centerEl = this.stage.querySelector('.rw-body.is-center');
+          if (centerEl) {
+            const fromR = centerEl.getBoundingClientRect();
+            const toR = card.getBoundingClientRect();
+            const sx = Math.max(0.45, Math.min(1, fromR.width / toR.width));
+            const sy = Math.max(0.45, Math.min(1, fromR.height / toR.height));
+            const dx = (fromR.left + fromR.width / 2) - (toR.left + toR.width / 2);
+            const dy = (fromR.top + fromR.height / 2) - (toR.top + toR.height / 2);
+            card.animate([
+              { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`, opacity: 0.7 },
+              { transform: 'none', opacity: 1 }
+            ], { duration: 480, easing: 'cubic-bezier(.16,1,.3,1)' });
+          }
+        }
+
+        stage.querySelectorAll('.rw-pin').forEach(pinBtn => {
+          pinBtn.addEventListener('pointerenter', () => this._cursor.classList.add('dot'));
+          pinBtn.addEventListener('pointerleave', () => this._cursor.classList.remove('dot'));
+          pinBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const pi = parseInt(pinBtn.getAttribute('data-pin-piece'), 10);
+            this.closeLookPopup();
+            const key = `${this.activeLook}-${pi}`;
+            this.openDrawerKey = key;
+            this.renderPanel();
+            const row = this.rowsEl.querySelector(`[data-row-idx="${pi}"]`);
+            if (row) {
+              row.classList.add('highlight');
+              row.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'nearest' });
+              setTimeout(() => row.classList.remove('highlight'), 1800);
+            }
+          });
+        });
+      }
+
+      closeLookPopup() {
+        this.popupOpen = false;
+        this._popup.classList.remove('open');
+        this._cursor.classList.remove('dot');
+      }
+
+      startLoop() {
+        let last = performance.now();
+        const K = 95;
+        const C = 19.49;
+
+        const tick = (now) => {
+          this._raf = requestAnimationFrame(tick);
+          const rawDt = Math.min(0.034, (now - last) / 1000);
+          last = now;
+
+          if (!this.dragging && !REDUCED_MOTION) {
+            const subDt = rawDt / 3;
+            for (let s = 0; s < 3; s++) {
+              const force = -K * (this.cur - this.target) - C * this.vel;
+              this.vel += force * subDt;
+              this.cur += this.vel * subDt;
+            }
+            if (Math.abs(this.cur - this.target) < 0.0005 && Math.abs(this.vel) < 0.0005) {
+              this.cur = this.target;
+              this.vel = 0;
+            }
+          }
+
+          this.layoutBodies();
+        };
+
+        this._raf = requestAnimationFrame(tick);
+      }
+
+      layoutBodies() {
+        if (!this.stage) return;
+        const W = this.stage.clientWidth;
+        const H = this.stage.clientHeight;
+        if (!W || !H) return;
+
+        const isMobile = window.innerWidth <= 749;
+        const step = (2 * Math.PI) / 12;
+        const cx = 0.5 * W;
+        const R = (isMobile ? 0.72 : 0.62) * W;
+        const P = (isMobile ? 1.9 : 1.65) * W;
+        const floor = H - 34;
+        const horizon = 0.36 * H;
+        const fs = 1.08;
+        const modelH = Math.max(200, Math.round((H - 34 - 18) / 1.08));
+        const modelW = modelH * (1100 / 1956);
+
+        let closestA = 0;
+        let closestDist = Infinity;
+
+        for (let i = 0; i < this.bodies.length; i++) {
+          const b = this.bodies[i];
+          const lk = LOOKS[b.lookIdx];
+          let dIdx = b.a - this.cur;
+          // wrap into [-6, 6]
+          dIdx = ((dIdx % 12) + 18) % 12 - 6;
+
+          if (Math.abs(dIdx) < closestDist) {
+            closestDist = Math.abs(dIdx);
+            closestA = b.a;
+          }
+
+          let x, feet, scale, blur, opacity, zIdx;
+
+          if (isMobile) {
+            // Classic diagonal line on mobile
+            x = cx + dIdx * (W * 0.44);
+            feet = floor - Math.abs(dIdx) * 32;
+            scale = Math.max(0.65, 1.04 - Math.abs(dIdx) * 0.18);
+            blur = Math.min(4, Math.abs(dIdx) * 1.4);
+            opacity = Math.max(0, Math.min(1, 1.3 - Math.abs(dIdx) * 0.55));
+            zIdx = Math.round(scale * 1000);
+          } else {
+            const phi = dIdx * step;
+            const z = R * (1 - Math.cos(phi));
+            const persp = P / (P + z);
+            const sl = Math.abs(phi) / step;
+            scale = persp * (1 + (fs - 1) * Math.max(0, Math.min(1, 1 - sl)));
+            x = cx + R * Math.sin(phi) * persp;
+            feet = horizon + (floor - horizon) * persp;
+            blur = sl <= 1 ? 1.8 * sl : Math.min(1.8 + (sl - 1) * 2, 6.5);
+            opacity = Math.max(0, Math.min(1, (Math.cos(phi) + 0.55) / 0.3));
+            zIdx = Math.round(scale * 1000);
+          }
+
+          const foot = this.footOffsets[lk.file] ?? 0.04;
+          const el = b.el;
+          el.style.height = `${modelH}px`;
+          el.style.width = `${modelW}px`;
+          const ty = feet - modelH * (1 - foot);
+          el.style.transform = `translate3d(${x - modelW / 2}px, ${ty}px, 0) scale(${scale})`;
+          el.style.filter = blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : 'none';
+          el.style.opacity = opacity.toFixed(3);
+          el.style.zIndex = zIdx;
+        }
+
+        for (let i = 0; i < this.bodies.length; i++) {
+          this.bodies[i].el.classList.toggle('is-center', this.bodies[i].a === closestA);
+        }
+      }
+    }
+
+    if (!customElements.get('runway-section')) {
+      customElements.define('runway-section', RunwaySection);
+    }
+
+    /* =========================================================================
+       PART C — PRODUCT CARDS, 3D TILT, PAGES & ROUTER
+       ========================================================================= */
+    function renderProductCard(p) {
+      const wished = store.wishlist.includes(p.id);
+      const isRail = typeof p.k === 'number';
+      return `
+        <article class="p-card" data-tilt>
+          <button type="button" class="p-wish-btn ${wished ? 'active' : ''}" data-wish="${p.id}" aria-label="${wished ? 'Remove from wishlist' : 'Save to wishlist'}">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="${wished ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="1.8"><path d="M12 20.5s-7.5-4.8-9.3-9.2C1.4 8 3.5 4.8 6.8 4.5c2-.2 3.8.8 5.2 2.5 1.4-1.7 3.2-2.7 5.2-2.5 3.3.3 5.4 3.5 4.1 6.8-1.8 4.4-9.3 9.2-9.3 9.2Z"/></svg>
+          </button>
+          <a href="#/product/${p.id}" class="p-card-media ${isRail ? '' : 'light-bg'}">
+            ${isRail
+              ? `<div class="sprite-box" data-sprite="${p.k}" role="img" aria-label="${p.name}"></div>`
+              : `<img src="${p.img}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer">`
+            }
+          </a>
+          <div class="p-card-body">
+            <div>
+              <div class="p-meta">${p.vendor} · ${p.category}</div>
+              <a href="#/product/${p.id}" class="p-name">${p.name}</a>
+            </div>
+            <div class="p-price tabular">${p.priceStr}</div>
+          </div>
+        </article>
+      `;
+    }
+
+    function bindProductCards(root) {
+      hydrateSpriteBoxes(root);
+      if (spriteResizeObs) {
+        root.querySelectorAll('.sprite-box[data-sprite]').forEach(el => spriteResizeObs.observe(el));
+      }
+
+      root.querySelectorAll('[data-wish]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const id = btn.getAttribute('data-wish');
+          toggleWishlist(id);
+          const active = store.wishlist.includes(id);
+          btn.classList.toggle('active', active);
+          const svg = btn.querySelector('svg');
+          if (svg) svg.setAttribute('fill', active ? 'currentColor' : 'none');
+        });
+      });
+
+      if (!REDUCED_MOTION) {
+        root.querySelectorAll('[data-tilt]').forEach(card => {
+          card.addEventListener('pointermove', (e) => {
+            if (e.pointerType !== 'mouse') return;
+            const r = card.getBoundingClientRect();
+            const px = (e.clientX - r.left) / r.width - 0.5;
+            const py = (e.clientY - r.top) / r.height - 0.5;
+            card.style.transform = `perspective(700px) rotateX(${(-py * 7).toFixed(2)}deg) rotateY(${(px * 9).toFixed(2)}deg) translateY(-2px)`;
+          });
+          card.addEventListener('pointerleave', () => {
+            card.style.transform = '';
+          });
+        });
+      }
+    }
+
+    function setupScrollReveals(root) {
+      const els = root.querySelectorAll('.reveal');
+      if (REDUCED_MOTION || !('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('in'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      els.forEach(el => io.observe(el));
+    }
+
+    /* ---------------- HOME VIEW ---------------- */
+    function renderHome(root, jumpLook = null) {
+      root.innerHTML = `
+        <div id="hero-mount"></div>
+        <runway-section id="runway-mount"></runway-section>
+
+        <section class="c-section reveal">
+          <div class="c-section-head">
+            <div>
+              <div class="c-eyebrow">Six Styled Editions</div>
+              <h2 class="c-h2">Runway Collections</h2>
+            </div>
+            <a href="#/collections" class="c-pill">View all looks</a>
+          </div>
+          <div class="collections-strip">
+            ${LOOKS.map(lk => `
+              <a href="#/collections?look=${lk.index}" class="look-tile">
+                <div class="look-tile-media">
+                  <img src="${RW_BASE}${lk.file}-640.webp" alt="${lk.name}" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="look-tile-body">
+                  <div class="look-tile-num">Look ${String(lk.num).padStart(2, '0')}</div>
+                  <div class="look-tile-title">${lk.name}</div>
+                </div>
+              </a>
+            `).join('')}
+          </div>
+        </section>
+
+        <section class="c-section reveal" style="padding-top:16px;">
+          <div class="c-section-head">
+            <div>
+              <div class="c-eyebrow">Limited Batch Drop</div>
+              <h2 class="c-h2">New in</h2>
+            </div>
+            <a href="#/shop" class="c-pill">Shop full catalog</a>
+          </div>
+          <div class="product-grid" id="home-new-in">
+            ${[RAIL_PRODUCTS[0], RAIL_PRODUCTS[5], RAIL_PRODUCTS[7], RUNWAY_PRODUCTS['hoodie-black'], RAIL_PRODUCTS[3], RUNWAY_PRODUCTS['air-jordan-12-retro'], RAIL_PRODUCTS[9], RUNWAY_PRODUCTS['sweatshirt-plus']].map(renderProductCard).join('')}
+          </div>
+        </section>
+
+        <section class="c-section reveal" style="padding-top:12px;">
+          <div class="props-grid">
+            <div class="prop-item">
+              <h4>Limited Run Atelier</h4>
+              <p>Every Luna garment is produced in numbered small batches with zero restocks once archived.</p>
+            </div>
+            <div class="prop-item">
+              <h4>Head-to-Toe Styling</h4>
+              <p>Bundle complete runway looks directly from the 3D carousel and save 10% automatically.</p>
+            </div>
+            <div class="prop-item">
+              <h4>Express Global Dispatch</h4>
+              <p>Insured priority courier shipping from our studio with real-time order tracking.</p>
+            </div>
+            <div class="prop-item">
+              <h4>WhatsApp Concierge</h4>
+              <p>Instant sizing guidance, private client reservations, and direct WhatsApp ordering.</p>
+            </div>
+          </div>
+        </section>
+      `;
+
+      const cleanupHero = mountHero(root.querySelector('#hero-mount'));
+      bindProductCards(root);
+      setupScrollReveals(root);
+
+      if (jumpLook !== null) {
+        const rw = root.querySelector('runway-section');
+        if (rw) {
+          setTimeout(() => {
+            rw.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+            rw.go(jumpLook);
+          }, 80);
+        }
+      }
+
+      return cleanupHero;
+    }
+
+    /* ---------------- SHOP VIEW ---------------- */
+    function renderShop(root, queryParams) {
+      const cats = ['All', 'Tees', 'Longsleeves', 'Hoodies', 'Sweatshirts', 'Outerwear', 'Footwear'];
+      let activeCat = cats.includes(queryParams.get('cat')) ? queryParams.get('cat') : 'All';
+      let searchTerm = queryParams.get('q') || '';
+      let sortBy = 'featured';
+
+      root.innerHTML = `
+        <section class="c-section">
+          <div class="c-section-head">
+            <div>
+              <div class="c-eyebrow">Luna Luxury Wears</div>
+              <h1 class="c-h2">The Archive &amp; Runway Catalog</h1>
+            </div>
+            <div id="shop-count" style="font-size:12px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;"></div>
+          </div>
+
+          <div class="shop-toolbar">
+            <div class="chip-row" id="shop-chips">
+              ${cats.map(c => `<button type="button" class="chip ${c === activeCat ? 'active' : ''}" data-cat="${c}">${c}</button>`).join('')}
+            </div>
+            <div class="shop-controls">
+              <input type="search" id="shop-search" class="c-input" placeholder="Filter by name, piece..." value="${searchTerm.replace(/"/g, '&quot;')}">
+              <select id="shop-sort" class="c-select" aria-label="Sort products">
+                <option value="featured">Sort: Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name">Name: A–Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="product-grid" id="shop-grid"></div>
+        </section>
+      `;
+
+      const grid = root.querySelector('#shop-grid');
+      const countEl = root.querySelector('#shop-count');
+      const searchInput = root.querySelector('#shop-search');
+      const sortSelect = root.querySelector('#shop-sort');
+
+      function update() {
+        let list = ALL_PRODUCTS.filter(p => {
+          const catMatch = activeCat === 'All' || p.category === activeCat;
+          const q = searchTerm.trim().toLowerCase();
+          const qMatch = !q || p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || p.vendor.toLowerCase().includes(q);
+          return catMatch && qMatch;
+        });
+
+        if (sortBy === 'price-asc') list = [...list].sort((a, b) => toUSD(a) - toUSD(b));
+        else if (sortBy === 'price-desc') list = [...list].sort((a, b) => toUSD(b) - toUSD(a));
+        else if (sortBy === 'name') list = [...list].sort((a, b) => a.name.localeCompare(b.name));
+
+        countEl.textContent = `${list.length} ${list.length === 1 ? 'piece' : 'pieces'}`;
+        if (!list.length) {
+          grid.innerHTML = `<div class="panel-box" style="grid-column:1/-1;text-align:center;padding:48px 24px;">
+            <p style="margin:0 0 16px;color:var(--mute);">No pieces match your current filter.</p>
+            <button type="button" class="c-pill" id="shop-reset">Reset filters</button>
+          </div>`;
+          grid.querySelector('#shop-reset').addEventListener('click', () => {
+            activeCat = 'All';
+            searchTerm = '';
+            searchInput.value = '';
+            root.querySelectorAll('#shop-chips .chip').forEach(ch => ch.classList.toggle('active', ch.getAttribute('data-cat') === 'All'));
+            update();
+          });
+          return;
+        }
+        grid.innerHTML = list.map(renderProductCard).join('');
+        bindProductCards(grid);
+      }
+
+      root.querySelectorAll('#shop-chips .chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeCat = btn.getAttribute('data-cat');
+          root.querySelectorAll('#shop-chips .chip').forEach(b => b.classList.toggle('active', b === btn));
+          update();
+        });
+      });
+
+      searchInput.addEventListener('input', () => {
+        searchTerm = searchInput.value;
+        update();
+      });
+
+      sortSelect.addEventListener('change', () => {
+        sortBy = sortSelect.value;
+        update();
+      });
+
+      update();
+    }
+
+    /* ---------------- COLLECTIONS VIEW ---------------- */
+    function renderCollections(root, queryParams) {
+      const focusLook = queryParams.get('look');
+      root.innerHTML = `
+        <section class="c-section">
+          <div class="c-section-head">
+            <div>
+              <div class="c-eyebrow">Head-to-Toe Styling</div>
+              <h1 class="c-h2">Runway Collections</h1>
+            </div>
+            <a href="#/shop" class="c-pill">Browse individual pieces</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+            ${LOOKS.map(lk => {
+              const isFocus = focusLook !== null && Number(focusLook) === lk.index;
+              return `
+                <article class="panel-box" style="padding:0;overflow:hidden;${isFocus ? 'border-color:var(--ink);' : ''}">
+                  <div style="aspect-ratio:4/5;background:#f2f0eb;display:grid;place-items:center;overflow:hidden;">
+                    <img src="${RW_BASE}original-look-${lk.fileNum}.webp" alt="${lk.name}" loading="lazy" style="width:100%;height:100%;object-fit:contain;">
+                  </div>
+                  <div style="padding:22px;">
+                    <div class="c-eyebrow">Look ${String(lk.num).padStart(2, '0')}</div>
+                    <h2 style="margin:0 0 12px;font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;font-weight:400;">${lk.name}</h2>
+                    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px;border-top:1px solid var(--line);padding-top:12px;">
+                      ${lk.pieces.map((pc, pi) => {
+                        const prod = RUNWAY_PRODUCTS[pc.id];
+                        return `<div style="display:flex;justify-content:space-between;font-size:13px;">
+                          <a href="#/product/${prod.id}" style="text-decoration:underline;text-underline-offset:3px;">${pi + 1}. ${prod.name}</a>
+                          <span class="tabular" style="color:var(--mute);">${prod.priceStr}</span>
+                        </div>`;
+                      }).join('')}
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                      <div class="tabular" style="font-size:13px;"><s style="color:var(--mute);margin-right:6px;">$547.00</s><strong>$492.30</strong></div>
+                      <button type="button" class="c-pill c-pill-primary" data-try-look="${lk.index}">Try this look</button>
+                    </div>
+                  </div>
+                </article>
+              `;
+            }).join('')}
+          </div>
+        </section>
+      `;
+
+      root.querySelectorAll('[data-try-look]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.getAttribute('data-try-look'), 10);
+          window.location.hash = `#/?look=${idx}`;
+        });
+      });
+    }
+
+    /* ---------------- PRODUCT DETAIL VIEW ---------------- */
+    function renderProductDetail(root, id) {
+      const p = getProduct(id);
+      if (!p) {
+        root.innerHTML = `<section class="c-section"><div class="panel-box"><h2>Piece not found</h2><a href="#/shop" class="c-pill" style="margin-top:14px;">Return to shop</a></div></section>`;
+        return;
+      }
+
+      const isRail = typeof p.k === 'number';
+      let selectedColor = p.colors[0].name;
+      let selectedSize = p.sizes[0];
+      const wished = store.wishlist.includes(p.id);
+      const related = ALL_PRODUCTS.filter(item => item.id !== p.id && item.category === p.category).slice(0, 4);
+      const fallbackRelated = related.length >= 4 ? related : [...related, ...ALL_PRODUCTS.filter(item => item.id !== p.id && !related.includes(item))].slice(0, 4);
+
+      root.innerHTML = `
+        <section class="c-section">
+          <div style="margin-bottom:24px;">
+            <a href="#/shop" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);">&larr; Back to Shop</a>
+          </div>
+          <div class="pdp-grid">
+            <div class="pdp-visual ${isRail ? '' : 'light-bg'}" id="pdp-visual">
+              <div class="pdp-visual-inner" id="pdp-visual-inner">
+                ${isRail
+                  ? `<div class="sprite-box" data-sprite="${p.k}" role="img" aria-label="${p.name}"></div>`
+                  : `<img src="${p.img}" alt="${p.name}" referrerpolicy="no-referrer">`
+                }
+              </div>
+            </div>
+            <div>
+              <div class="c-eyebrow">${p.vendor} · ${p.category}</div>
+              <h1 class="c-h2" style="margin-bottom:10px;">${p.name}</h1>
+              <div class="tabular" style="font-size:20px;font-weight:500;margin-bottom:18px;">${p.priceStr}</div>
+              <p style="font-size:14px;line-height:1.65;color:var(--mute);margin:0 0 24px;">${p.desc}</p>
+
+              <div style="margin-bottom:22px;">
+                <div class="c-eyebrow">Colour: <span id="pdp-color-label" style="color:var(--ink);">${selectedColor}</span></div>
+                <div class="swatch-row">
+                  ${p.colors.map((c, idx) => `
+                    <button type="button" class="swatch-btn ${idx === 0 ? 'active' : ''}" data-color="${c.name}">
+                      <span class="swatch-dot" style="background:${c.hex};"></span>
+                      <span>${c.name}</span>
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+
+              <div style="margin-bottom:28px;">
+                <div class="c-eyebrow">Size: <span id="pdp-size-label" style="color:var(--ink);">${selectedSize}</span></div>
+                <div class="size-row">
+                  ${p.sizes.map((sz, idx) => `
+                    <button type="button" class="size-btn ${idx === 0 ? 'active' : ''}" data-size="${sz}">${sz}</button>
+                  `).join('')}
+                </div>
+              </div>
+
+              <div style="display:flex;flex-wrap:wrap;gap:12px;">
+                <button type="button" class="c-pill c-pill-primary" id="pdp-add" style="height:46px;padding:0 28px;">Add to bag</button>
+                <button type="button" class="c-pill" id="pdp-wish" style="height:46px;">${wished ? '♥ Saved' : '♡ Save to wishlist'}</button>
+                <a id="pdp-wa" class="c-pill c-pill-red" href="#" target="_blank" rel="noopener noreferrer" style="height:46px;">Order on WhatsApp</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:80px;">
+            <div class="c-eyebrow">Curated Pairing</div>
+            <h2 class="c-h2" style="margin-bottom:28px;">Related Pieces</h2>
+            <div class="product-grid" id="pdp-related">
+              ${fallbackRelated.map(renderProductCard).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+
+      const waLink = root.querySelector('#pdp-wa');
+      const syncWa = () => {
+        waLink.href = buildWhatsAppUrl(`Hello Luna Luxury Wears, I would like to order:\n• Piece: ${p.name}\n• Colour: ${selectedColor}\n• Size: ${selectedSize}\n• Price: ${p.priceStr}`);
+      };
+      syncWa();
+
+      root.querySelectorAll('[data-color]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedColor = btn.getAttribute('data-color');
+          root.querySelector('#pdp-color-label').textContent = selectedColor;
+          root.querySelectorAll('[data-color]').forEach(b => b.classList.toggle('active', b === btn));
+          syncWa();
+        });
+      });
+
+      root.querySelectorAll('[data-size]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedSize = btn.getAttribute('data-size');
+          root.querySelector('#pdp-size-label').textContent = selectedSize;
+          root.querySelectorAll('[data-size]').forEach(b => b.classList.toggle('active', b === btn));
+          syncWa();
+        });
+      });
+
+      root.querySelector('#pdp-add').addEventListener('click', () => {
+        addToCart(p.id, selectedSize, selectedColor, 1);
+      });
+
+      const wishBtn = root.querySelector('#pdp-wish');
+      wishBtn.addEventListener('click', () => {
+        toggleWishlist(p.id);
+        wishBtn.textContent = store.wishlist.includes(p.id) ? '♥ Saved' : '♡ Save to wishlist';
+      });
+
+      if (!REDUCED_MOTION) {
+        const vis = root.querySelector('#pdp-visual');
+        const inner = root.querySelector('#pdp-visual-inner');
+        vis.addEventListener('pointermove', (e) => {
+          if (e.pointerType !== 'mouse') return;
+          const r = vis.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          inner.style.transform = `rotateX(${(-py * 12).toFixed(2)}deg) rotateY(${(px * 14).toFixed(2)}deg)`;
+        });
+        vis.addEventListener('pointerleave', () => {
+          inner.style.transform = '';
+        });
+      }
+
+      bindProductCards(root);
+    }
+
+    /* ---------------- ABOUT VIEW ---------------- */
+    function renderAbout(root) {
+      root.innerHTML = `
+        <section class="c-section">
+          <div style="max-width:780px;">
+            <div class="c-eyebrow">House Philosophy</div>
+            <h1 class="c-h2" style="margin-bottom:24px;">Crafted in Limited Runs. Never Restocked.</h1>
+            <p style="font-size:16px;line-height:1.75;color:var(--ink);opacity:.9;margin:0 0 20px;">
+              Luna Luxury Wears sits at the intersection of heavyweight archival streetwear and modern runway tailoring. Every tee, fleece, outerwear piece, and footwear silhouette in our seasonal edit is released in strictly capped quantities.
+            </p>
+            <p style="font-size:15px;line-height:1.75;color:var(--mute);margin:0 0 36px;">
+              From 320gsm combed jersey blanks to 520gsm French terry hoodies and curated court footwear, each piece is designed to stand alone on the rail or pair effortlessly in our head-to-toe styled runway looks.
+            </p>
+          </div>
+          <div class="props-grid">
+            <div class="prop-item"><h4>01. Small-Batch Production</h4><p>Every garment run is numbered and retired permanently once sold through.</p></div>
+            <div class="prop-item"><h4>02. Architectural Weight</h4><p>Custom milled 300–520gsm textiles built to hold sculptural drape.</p></div>
+            <div class="prop-item"><h4>03. Curated Footwear</h4><p>Iconic silhouette pairings verified for finish, fit, and proportion.</p></div>
+            <div class="prop-item"><h4>04. Private Client Desk</h4><p>Direct styling consultation and express dispatch via WhatsApp concierge.</p></div>
+          </div>
+        </section>
+      `;
+    }
+
+    /* ---------------- CONTACT VIEW ---------------- */
+    function renderContact(root) {
+      root.innerHTML = `
+        <section class="c-section">
+          <div class="two-col-layout">
+            <div>
+              <div class="c-eyebrow">Client Concierge</div>
+              <h1 class="c-h2" style="margin-bottom:16px;">Speak with Luna</h1>
+              <p style="font-size:14px;line-height:1.65;color:var(--mute);margin:0 0 28px;">
+                For sizing advice, private appointments, or custom order requests, send us a message below. Submissions open directly in WhatsApp with your details prefilled.
+              </p>
+              <form id="contact-form" class="panel-box form-grid">
+                <div class="field">
+                  <label for="c-name">Full Name</label>
+                  <input class="c-input" id="c-name" required placeholder="Amara Okafor">
+                </div>
+                <div class="field">
+                  <label for="c-email">Email</label>
+                  <input class="c-input" id="c-email" type="email" required placeholder="you@domain.com">
+                </div>
+                <div class="field full">
+                  <label for="c-subj">Subject</label>
+                  <input class="c-input" id="c-subj" required placeholder="Sizing inquiry / Runway look reservation">
+                </div>
+                <div class="field full">
+                  <label for="c-msg">Message</label>
+                  <textarea class="c-textarea" id="c-msg" required placeholder="Tell us which piece or look you are interested in..."></textarea>
+                </div>
+                <div class="field full">
+                  <button type="submit" class="c-pill c-pill-primary" style="height:44px;">Send via WhatsApp</button>
+                </div>
+              </form>
+              <div id="contact-sent" style="display:none;margin-top:16px;" class="panel-box">
+                <div style="font-size:13px;margin-bottom:10px;">Your message is ready to send on WhatsApp:</div>
+                <a id="contact-wa-anchor" class="c-pill c-pill-red" href="#" target="_blank" rel="noopener noreferrer">Open WhatsApp Chat</a>
+              </div>
+            </div>
+            <div class="panel-box">
+              <div class="c-eyebrow">Atelier Details</div>
+              <h3 style="margin:0 0 18px;font-size:18px;font-weight:500;">Direct Channels</h3>
+              <div style="display:flex;flex-direction:column;gap:16px;font-size:13px;color:var(--mute);">
+                <div><strong style="color:var(--ink);display:block;margin-bottom:3px;">Studio Hours</strong>Mon – Sat, 09:00 – 19:00 WAT</div>
+                <div><strong style="color:var(--ink);display:block;margin-bottom:3px;">Client Services</strong>concierge@lunaluxurywears.com</div>
+                <div><strong style="color:var(--ink);display:block;margin-bottom:3px;">WhatsApp Direct</strong>+${WHATSAPP_NUMBER}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+
+      root.querySelector('#contact-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = root.querySelector('#c-name').value.trim();
+        const email = root.querySelector('#c-email').value.trim();
+        const subj = root.querySelector('#c-subj').value.trim();
+        const msg = root.querySelector('#c-msg').value.trim();
+        const url = buildWhatsAppUrl(`Hello Luna Luxury Wears,\nName: ${name}\nEmail: ${email}\nSubject: ${subj}\nMessage: ${msg}`);
+        const sentBox = root.querySelector('#contact-sent');
+        const anchor = root.querySelector('#contact-wa-anchor');
+        anchor.href = url;
+        sentBox.style.display = 'block';
+        anchor.click();
+        showToast('Inquiry prepared for WhatsApp');
+      });
+    }
+
+    /* ---------------- WISHLIST VIEW ---------------- */
+    function renderWishlist(root) {
+      const items = store.wishlist.map(getProduct).filter(Boolean);
+      root.innerHTML = `
+        <section class="c-section">
+          <div class="c-section-head">
+            <div>
+              <div class="c-eyebrow">Saved Archive</div>
+              <h1 class="c-h2">Your Wishlist</h1>
+            </div>
+            <a href="#/shop" class="c-pill">Continue shopping</a>
+          </div>
+          ${items.length
+            ? `<div class="product-grid" id="wish-grid">${items.map(renderProductCard).join('')}</div>`
+            : `<div class="panel-box" style="text-align:center;padding:56px 24px;">
+                <p style="margin:0 0 18px;color:var(--mute);">Your wishlist is currently empty.</p>
+                <a href="#/shop" class="c-pill c-pill-primary">Explore the collection</a>
+              </div>`
+          }
+        </section>
+      `;
+      bindProductCards(root);
+      root.querySelectorAll('[data-wish]').forEach(btn => {
+        btn.addEventListener('click', () => renderWishlist(root));
+      });
+    }
+
+    /* ---------------- CART VIEW ---------------- */
+    function renderCart(root) {
+      const enriched = store.cart.map((item, idx) => ({ ...item, idx, product: getProduct(item.id) })).filter(x => x.product);
+      const usdTotal = enriched.reduce((sum, x) => sum + toUSD(x.product) * x.qty, 0);
+
+      const waLines = enriched.map(x => `• ${x.qty}× ${x.product.name} (${x.size}, ${x.color}) — ${x.product.priceStr}`).join('\n');
+      const waOrderUrl = buildWhatsAppUrl(`Hello Luna Luxury Wears, I would like to place an order:\n${waLines}\nEstimated Total: ${formatUSD(usdTotal)}`);
+
+      root.innerHTML = `
+        <section class="c-section">
+          <div class="c-section-head">
+            <div>
+              <div class="c-eyebrow">Shopping Bag</div>
+              <h1 class="c-h2">Your Selection</h1>
+            </div>
+            <a href="#/shop" class="c-pill">Add more pieces</a>
+          </div>
+
+          ${enriched.length === 0 ? `
+            <div class="panel-box" style="text-align:center;padding:56px 24px;">
+              <p style="margin:0 0 18px;color:var(--mute);">Your bag is empty.</p>
+              <a href="#/shop" class="c-pill c-pill-primary">Shop Luna Drops</a>
+            </div>
+          ` : `
+            <div class="two-col-layout">
+              <div class="panel-box">
+                ${enriched.map(x => {
+                  const isRail = typeof x.product.k === 'number';
+                  return `
+                    <div class="cart-item">
+                      <div class="cart-thumb ${isRail ? '' : 'light-bg'}">
+                        ${isRail
+                          ? `<div class="sprite-box" data-sprite="${x.product.k}"></div>`
+                          : `<img src="${x.product.img}" alt="${x.product.name}" referrerpolicy="no-referrer">`
+                        }
+                      </div>
+                      <div>
+                        <div class="p-meta">${x.product.vendor}</div>
+                        <a href="#/product/${x.product.id}" class="p-name">${x.product.name}</a>
+                        <div style="font-size:12px;color:var(--mute);margin-top:4px;">Size: ${x.size} · Colour: ${x.color}</div>
+                        <div class="tabular" style="font-size:13px;margin-top:6px;">${x.product.priceStr}</div>
+                      </div>
+                      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+                        <div class="qty-ctrl">
+                          <button type="button" data-dec="${x.idx}" aria-label="Decrease quantity">&minus;</button>
+                          <span>${x.qty}</span>
+                          <button type="button" data-inc="${x.idx}" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button type="button" data-rem="${x.idx}" style="font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;">Remove</button>
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+
+              <div class="panel-box">
+                <div class="c-eyebrow">Order Summary</div>
+                <div style="display:flex;justify-content:space-between;margin:14px 0;font-size:14px;">
+                  <span style="color:var(--mute);">Subtotal (USD equiv.)</span>
+                  <strong class="tabular">${formatUSD(usdTotal)}</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;margin:10px 0 22px;font-size:13px;color:var(--mute);">
+                  <span>Courier Shipping</span>
+                  <span>Calculated at checkout</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                  <a href="#/checkout" class="c-pill c-pill-primary" style="height:46px;">Proceed to checkout</a>
+                  <a href="${waOrderUrl}" target="_blank" rel="noopener noreferrer" class="c-pill c-pill-red" style="height:46px;">Order via WhatsApp</a>
+                </div>
+              </div>
+            </div>
+          `}
+        </section>
+      `;
+
+      hydrateSpriteBoxes(root);
+      root.querySelectorAll('[data-inc]').forEach(b => b.addEventListener('click', () => {
+        const i = parseInt(b.getAttribute('data-inc'), 10);
+        store.cart[i].qty++;
+        writeJSON(LS_KEYS.cart, store.cart);
+        syncHeaderCounts();
+        renderCart(root);
+      }));
+      root.querySelectorAll('[data-dec]').forEach(b => b.addEventListener('click', () => {
+        const i = parseInt(b.getAttribute('data-dec'), 10);
+        if (store.cart[i].qty > 1) store.cart[i].qty--;
+        else store.cart.splice(i, 1);
+        writeJSON(LS_KEYS.cart, store.cart);
+        syncHeaderCounts();
+        renderCart(root);
+      }));
+      root.querySelectorAll('[data-rem]').forEach(b => b.addEventListener('click', () => {
+        const i = parseInt(b.getAttribute('data-rem'), 10);
+        store.cart.splice(i, 1);
+        writeJSON(LS_KEYS.cart, store.cart);
+        syncHeaderCounts();
+        renderCart(root);
+      }));
+    }
+
+    /* ---------------- CHECKOUT VIEW ---------------- */
+    function renderCheckout(root) {
+      const enriched = store.cart.map(item => ({ ...item, product: getProduct(item.id) })).filter(x => x.product);
+      const usdTotal = enriched.reduce((sum, x) => sum + toUSD(x.product) * x.qty, 0);
+
+      if (!enriched.length) {
+        root.innerHTML = `
+          <section class="c-section">
+            <div class="panel-box" style="text-align:center;padding:56px 24px;">
+              <h1 class="c-h2" style="margin-bottom:12px;">Your bag is empty</h1>
+              <p style="color:var(--mute);margin-bottom:20px;">Add pieces from the Luna rail or runway before checking out.</p>
+              <a href="#/shop" class="c-pill c-pill-primary">Return to Shop</a>
+            </div>
+          </section>
+        `;
+        return;
+      }
+
+      root.innerHTML = `
+        <section class="c-section">
+          <div class="c-section-head">
+            <div>
+              <div class="c-eyebrow">Express Checkout</div>
+              <h1 class="c-h2">Complete Your Order</h1>
+            </div>
+          </div>
+
+          <div class="demo-banner">
+            <strong>Front-end Demo Notice:</strong> This preview persists orders locally in your browser. Production card/mobile money payments connect directly to Paystack or Flutterwave via <code>window.LunaPaymentHook</code>, paired with a Shopify or WooCommerce backend.
+          </div>
+
+          <div id="checkout-content" class="two-col-layout">
+            <form id="checkout-form" class="panel-box form-grid">
+              <div class="field">
+                <label for="ck-name">Full Name</label>
+                <input class="c-input" id="ck-name" required value="${store.user ? store.user.name : ''}" placeholder="Full Name">
+              </div>
+              <div class="field">
+                <label for="ck-email">Email Address</label>
+                <input class="c-input" id="ck-email" type="email" required value="${store.user ? store.user.email : ''}" placeholder="email@domain.com">
+              </div>
+              <div class="field">
+                <label for="ck-phone">Phone / WhatsApp</label>
+                <input class="c-input" id="ck-phone" required placeholder="+234 800 000 0000">
+              </div>
+              <div class="field">
+                <label for="ck-city">City &amp; Country</label>
+                <input class="c-input" id="ck-city" required placeholder="Lagos, Nigeria">
+              </div>
+              <div class="field full">
+                <label for="ck-addr">Street Delivery Address</label>
+                <input class="c-input" id="ck-addr" required placeholder="Street, suite, postal code">
+              </div>
+
+              <div class="field full">
+                <label>Payment Method</label>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:4px;">
+                  <label style="display:flex;align-items:center;gap:8px;padding:12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;text-transform:none;letter-spacing:0;font-size:13px;color:var(--ink);">
+                    <input type="radio" name="pay" value="Card (Paystack / Flutterwave)" checked> Card
+                  </label>
+                  <label style="display:flex;align-items:center;gap:8px;padding:12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;text-transform:none;letter-spacing:0;font-size:13px;color:var(--ink);">
+                    <input type="radio" name="pay" value="Mobile Money / Transfer"> Mobile money / transfer
+                  </label>
+                  <label style="display:flex;align-items:center;gap:8px;padding:12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;text-transform:none;letter-spacing:0;font-size:13px;color:var(--ink);">
+                    <input type="radio" name="pay" value="WhatsApp Payment"> WhatsApp payment
+                  </label>
+                </div>
+              </div>
+
+              <div class="field full" id="pay-instructions" style="font-size:12px;color:var(--mute);padding:12px;background:var(--surface-2);border-radius:8px;">
+                Card checkout hook ready for PaystackPop.setup() / FlutterwaveCheckout(). Submitting generates a confirmed demo order number.
+              </div>
+
+              <div class="field full">
+                <button type="submit" class="c-pill c-pill-primary" style="height:48px;">Place Order — ${formatUSD(usdTotal)}</button>
+              </div>
+            </form>
+
+            <div class="panel-box">
+              <div class="c-eyebrow">Bag Breakdown</div>
+              <div style="display:flex;flex-direction:column;gap:12px;margin:14px 0;padding-bottom:14px;border-bottom:1px solid var(--line);">
+                ${enriched.map(x => `
+                  <div style="display:flex;justify-content:space-between;font-size:13px;gap:12px;">
+                    <span>${x.qty}× ${x.product.name} <span style="color:var(--mute);">(${x.size})</span></span>
+                    <span class="tabular">${x.product.priceStr}</span>
+                  </div>
+                `).join('')}
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;">
+                <span>Total (USD equiv.)</span>
+                <span class="tabular">${formatUSD(usdTotal)}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+
+      const instrEl = root.querySelector('#pay-instructions');
+      root.querySelectorAll('input[name="pay"]').forEach(r => {
+        r.addEventListener('change', () => {
+          if (r.value.startsWith('Card')) {
+            instrEl.textContent = 'Card checkout hook ready for PaystackPop.setup() / FlutterwaveCheckout(). Submitting generates a confirmed demo order number.';
+          } else if (r.value.startsWith('Mobile')) {
+            instrEl.textContent = 'Mobile Money / Bank Transfer: Reference your order number upon confirmation to dispatch within 24 hours.';
+          } else {
+            instrEl.textContent = 'WhatsApp Payment: Generates your order number and opens a prefilled WhatsApp concierge link to finalize payment.';
+          }
+        });
+      });
+
+      root.querySelector('#checkout-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const payMethod = root.querySelector('input[name="pay"]:checked').value;
+        const orderId = 'LUNA-2026-' + String(Math.floor(1000 + Math.random() * 9000));
+        const customer = {
+          name: root.querySelector('#ck-name').value.trim(),
+          email: root.querySelector('#ck-email').value.trim(),
+          phone: root.querySelector('#ck-phone').value.trim(),
+          city: root.querySelector('#ck-city').value.trim(),
+          address: root.querySelector('#ck-addr').value.trim()
+        };
+
+        // Integration hook for Paystack / Flutterwave
+        if (typeof window.LunaPaymentHook === 'function') {
+          window.LunaPaymentHook({ orderId, totalUSD: usdTotal, customer, payMethod });
+        }
+
+        const newOrder = {
+          id: orderId,
+          createdAt: new Date().toISOString(),
+          stage: 1, // 0 Confirmed, 1 Atelier QC, 2 Dispatched, 3 Delivered
+          payMethod,
+          totalUSD: usdTotal,
+          customer,
+          items: enriched.map(x => ({
+            id: x.id,
+            name: x.product.name,
+            size: x.size,
+            color: x.color,
+            qty: x.qty,
+            priceStr: x.product.priceStr
+          }))
+        };
+
+        store.orders.unshift(newOrder);
+        writeJSON(LS_KEYS.orders, store.orders);
+        store.cart = [];
+        writeJSON(LS_KEYS.cart, store.cart);
+        syncHeaderCounts();
+
+        const waConfirmUrl = buildWhatsAppUrl(
+          `Hello Luna Luxury Wears, Order ${orderId} placed by ${customer.name} (${payMethod}):\n` +
+          newOrder.items.map(i => `• ${i.qty}× ${i.name} (${i.size}) — ${i.priceStr}`).join('\n') +
+          `\nTotal: ${formatUSD(usdTotal)}\nShip to: ${customer.address}, ${customer.city}`
+        );
+
+        root.querySelector('#checkout-content').innerHTML = `
+          <div class="panel-box" style="grid-column:1/-1;">
+            <div class="c-eyebrow">Order Confirmed</div>
+            <h2 class="c-h2" style="margin-bottom:10px;">Thank you, ${customer.name}</h2>
+            <p style="font-size:14px;color:var(--mute);margin:0 0 18px;">
+              Your order number is <strong class="tabular" style="color:var(--ink);">${orderId}</strong>. Payment method: ${payMethod}.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;">
+              <a href="#/account?track=${orderId}" class="c-pill c-pill-primary">Track this order</a>
+              <a href="${waConfirmUrl}" target="_blank" rel="noopener noreferrer" class="c-pill c-pill-red">Send order receipt on WhatsApp</a>
+              <a href="#/shop" class="c-pill">Continue shopping</a>
+            </div>
+          </div>
+        `;
+        showToast(`Order ${orderId} confirmed`);
+      });
+    }
+
+    /* ---------------- ACCOUNT & ORDER TRACKING VIEW ---------------- */
+    function renderAccount(root, queryParams) {
+      const trackParam = queryParams.get('track') || '';
+      const stages = ['Order Confirmed', 'Atelier QC & Pack', 'Courier Dispatched', 'Delivered'];
+
+      function renderTrackingCard(order) {
+        if (!order) {
+          return `<div style="margin-top:16px;font-size:13px;color:var(--red);">No order found with that number. Place a checkout order first or verify the LUNA-2026-XXXX code.</div>`;
+        }
+        return `
+          <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--line);">
+            <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+              <strong class="tabular">${order.id}</strong>
+              <span style="font-size:12px;color:var(--mute);">${new Date(order.createdAt).toLocaleDateString()} · ${formatUSD(order.totalUSD)}</span>
+            </div>
+            <div class="timeline">
+              ${stages.map((st, idx) => `
+                <div class="tl-step ${idx <= order.stage ? 'done' : ''}">
+                  <small>Step 0${idx + 1}</small>
+                  <div style="font-size:13px;font-weight:500;">${st}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      root.innerHTML = `
+        <section class="c-section">
+          <div class="c-section-head">
+            <div>
+              <div class="c-eyebrow">Client Profile</div>
+              <h1 class="c-h2">Account &amp; Order Tracking</h1>
+            </div>
+          </div>
+
+          <div class="demo-banner">
+            <strong>Local Account Preview:</strong> Profile data and order history are stored locally in your browser.
+          </div>
+
+          <div class="two-col-layout">
+            <div class="panel-box">
+              <div class="c-eyebrow">Order Tracker</div>
+              <h3 style="margin:0 0 14px;font-size:18px;font-weight:500;">Track by Order Number</h3>
+              <form id="track-form" style="display:flex;gap:10px;flex-wrap:wrap;">
+                <input class="c-input" id="track-input" value="${trackParam}" placeholder="e.g. LUNA-2026-1042" style="flex:1;min-width:200px;">
+                <button type="submit" class="c-pill c-pill-primary">Track</button>
+              </form>
+              <div id="track-result">
+                ${trackParam ? renderTrackingCard(store.orders.find(o => o.id.toUpperCase() === trackParam.toUpperCase())) : ''}
+              </div>
+
+              <div style="margin-top:32px;padding-top:22px;border-top:1px solid var(--line);">
+                <div class="c-eyebrow">Order History</div>
+                ${store.orders.length === 0 ? `<p style="font-size:13px;color:var(--mute);">No orders placed yet.</p>` : `
+                  <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
+                    ${store.orders.map(o => `
+                      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--surface-2);border-radius:8px;gap:12px;flex-wrap:wrap;">
+                        <div>
+                          <strong class="tabular" style="font-size:13px;">${o.id}</strong>
+                          <div style="font-size:12px;color:var(--mute);">${o.items.length} item(s) · ${stages[o.stage]}</div>
+                        </div>
+                        <button type="button" class="c-pill" data-view-order="${o.id}">View status</button>
+                      </div>
+                    `).join('')}
+                  </div>
+                `}
+              </div>
+            </div>
+
+            <div class="panel-box">
+              <div class="c-eyebrow">Membership</div>
+              ${store.user ? `
+                <h3 style="margin:0 0 8px;font-size:20px;font-weight:500;">${store.user.name}</h3>
+                <p style="font-size:13px;color:var(--mute);margin:0 0 20px;">${store.user.email}</p>
+                <button type="button" class="c-pill" id="acc-logout">Sign out</button>
+              ` : `
+                <h3 style="margin:0 0 14px;font-size:18px;font-weight:500;">Create Local Profile</h3>
+                <form id="signup-form" style="display:flex;flex-direction:column;gap:14px;">
+                  <div class="field">
+                    <label for="su-name">Full Name</label>
+                    <input class="c-input" id="su-name" required placeholder="Your name">
+                  </div>
+                  <div class="field">
+                    <label for="su-email">Email</label>
+                    <input class="c-input" id="su-email" type="email" required placeholder="you@domain.com">
+                  </div>
+                  <button type="submit" class="c-pill c-pill-primary" style="height:42px;">Save Profile</button>
+                </form>
+              `}
+            </div>
+          </div>
+        </section>
+      `;
+
+      const trackResult = root.querySelector('#track-result');
+      const trackInput = root.querySelector('#track-input');
+
+      root.querySelector('#track-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const code = trackInput.value.trim().toUpperCase();
+        const found = store.orders.find(o => o.id.toUpperCase() === code);
+        trackResult.innerHTML = renderTrackingCard(found);
+      });
+
+      root.querySelectorAll('[data-view-order]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const code = btn.getAttribute('data-view-order');
+          trackInput.value = code;
+          const found = store.orders.find(o => o.id === code);
+          trackResult.innerHTML = renderTrackingCard(found);
+        });
+      });
+
+      const signupForm = root.querySelector('#signup-form');
+      if (signupForm) {
+        signupForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          store.user = {
+            name: root.querySelector('#su-name').value.trim(),
+            email: root.querySelector('#su-email').value.trim()
+          };
+          writeJSON(LS_KEYS.user, store.user);
+          showToast('Profile saved');
+          renderAccount(root, queryParams);
+        });
+      }
+
+      const logoutBtn = root.querySelector('#acc-logout');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          store.user = null;
+          writeJSON(LS_KEYS.user, null);
+          showToast('Signed out');
+          renderAccount(root, queryParams);
+        });
+      }
+    }
+
+    /* =========================================================================
+       HASH ROUTER & GLOBAL WIRING
+       ========================================================================= */
+    let currentCleanup = null;
+
+    function parseHash() {
+      const raw = (window.location.hash || '#/').slice(1);
+      const [pathPart, queryPart] = raw.split('?');
+      const path = pathPart.startsWith('/') ? pathPart : '/' + pathPart;
+      return { path, params: new URLSearchParams(queryPart || '') };
+    }
+
+    function navigate() {
+      if (typeof currentCleanup === 'function') {
+        currentCleanup();
+        currentCleanup = null;
+      }
+
+      const { path, params } = parseHash();
+      const root = document.getElementById('app-root');
+
+      document.querySelectorAll('.nav-links a[data-route]').forEach(a => {
+        const r = a.getAttribute('data-route');
+        a.classList.toggle('active', r === path || (r === '/' && path === ''));
+      });
+
+      document.getElementById('mobile-drawer').classList.remove('open');
+      document.getElementById('nav-hamburger').setAttribute('aria-expanded', 'false');
+
+      if (path === '/' || path === '/home') {
+        const lk = params.has('look') ? parseInt(params.get('look'), 10) : null;
+        currentCleanup = renderHome(root, Number.isNaN(lk) ? null : lk);
+      } else if (path === '/shop') {
+        renderShop(root, params);
+      } else if (path === '/collections') {
+        renderCollections(root, params);
+      } else if (path.startsWith('/product/')) {
+        const id = path.slice('/product/'.length);
+        renderProductDetail(root, id);
+      } else if (path === '/about') {
+        renderAbout(root);
+      } else if (path === '/contact') {
+        renderContact(root);
+      } else if (path === '/wishlist') {
+        renderWishlist(root);
+      } else if (path === '/cart') {
+        renderCart(root);
+      } else if (path === '/checkout') {
+        renderCheckout(root);
+      } else if (path === '/account') {
+        renderAccount(root, params);
+      } else {
+        currentCleanup = renderHome(root, null);
+      }
+
+      if (!params.has('look')) {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }
+    }
+
+    // Header UI wiring
+    const hamBtn = document.getElementById('nav-hamburger');
+    const drawer = document.getElementById('mobile-drawer');
+    hamBtn.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      hamBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    const searchToggle = document.getElementById('nav-search-toggle');
+    const searchDrop = document.getElementById('search-drop');
+    const searchInput = document.getElementById('nav-search-input');
+    const searchClose = document.getElementById('nav-search-close');
+    searchToggle.addEventListener('click', () => {
+      const open = searchDrop.classList.toggle('open');
+      if (open) searchInput.focus();
+    });
+    searchClose.addEventListener('click', () => searchDrop.classList.remove('open'));
+    document.getElementById('nav-search-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = searchInput.value.trim();
+      searchDrop.classList.remove('open');
+      window.location.hash = `#/shop?q=${encodeURIComponent(q)}`;
+    });
+
+    // Global WhatsApp concierge links
+    const defaultWaUrl = buildWhatsAppUrl('Hello Luna Luxury Wears, I would like styling and availability assistance.');
+    document.getElementById('floating-wa').href = defaultWaUrl;
+    document.getElementById('footer-wa-link').href = defaultWaUrl;
+
+    syncHeaderCounts();
+    window.addEventListener('hashchange', navigate);
+    navigate();
+  })();
+  </script>
+</body>
+</html>
